@@ -1,232 +1,357 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Barbecue communautaire Posty78</title>
+
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #050505;
+      background: radial-gradient(circle at top, #102010 0%, #050505 38%, #000 100%);
       color: #fff;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 860px;
       margin: auto;
-      padding: 30px 18px;
+      padding: 18px 14px 40px;
     }
 
-    .hero, .card {
-      background: #111;
-      border: 1px solid #2f2f2f;
-      border-radius: 18px;
-      padding: 24px;
-      margin-bottom: 22px;
+    .hero {
+      background: linear-gradient(135deg, #111, #060606);
+      border: 1px solid #53fc18;
+      border-radius: 20px;
+      padding: 22px;
+      margin-bottom: 18px;
+      box-shadow: 0 0 24px rgba(83, 252, 24, 0.12);
     }
 
-    h1 {
+    .hero h1 {
+      margin: 0 0 14px;
       color: #53fc18;
-      font-size: 34px;
-      margin: 0 0 12px;
+      font-size: 32px;
+      line-height: 1.05;
+    }
+
+    .quick-info {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .info-pill {
+      background: #050505;
+      border: 1px solid #2b2b2b;
+      border-radius: 14px;
+      padding: 12px;
+      color: #eee;
+      font-weight: bold;
+    }
+
+    .card {
+      background: #111;
+      border: 1px solid #282828;
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 18px;
     }
 
     h2 {
-      color: #53fc18;
       margin-top: 0;
+      color: #53fc18;
+      font-size: 24px;
     }
 
     h3 {
-      color: #fff;
-      border-bottom: 1px solid #333;
+      margin-top: 26px;
       padding-bottom: 8px;
-      margin-top: 28px;
+      border-bottom: 1px solid #333;
+      color: #fff;
+      font-size: 18px;
     }
 
     p, li {
-      line-height: 1.6;
       color: #ddd;
+      line-height: 1.5;
+      font-size: 15px;
     }
 
     .muted {
       color: #aaa;
-      font-size: 14px;
+      font-size: 13px;
+    }
+
+    .shopping-list {
+      display: grid;
+      gap: 8px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .shopping-list li {
+      background: #070707;
+      border: 1px solid #252525;
+      border-radius: 12px;
+      padding: 10px 12px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      color: #eee;
+      margin-bottom: 6px;
     }
 
     input, textarea {
       width: 100%;
-      box-sizing: border-box;
-      padding: 12px;
-      margin-top: 6px;
-      margin-bottom: 14px;
-      border-radius: 10px;
+      padding: 13px;
+      border-radius: 12px;
       border: 1px solid #333;
       background: #050505;
       color: #fff;
       font-size: 15px;
+      margin-bottom: 14px;
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #53fc18;
+      box-shadow: 0 0 0 2px rgba(83, 252, 24, 0.15);
     }
 
     textarea {
       min-height: 90px;
-    }
-
-    label {
-      font-weight: bold;
-      color: #eee;
+      resize: vertical;
     }
 
     .check {
-      display: block;
-      margin: 10px 0;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: #070707;
+      border: 1px solid #252525;
+      border-radius: 12px;
+      padding: 11px;
+      margin-bottom: 9px;
       font-weight: normal;
     }
 
     .check input {
       width: auto;
+      margin: 2px 0 0;
+      transform: scale(1.1);
+    }
+
+    .course-box {
+      background: #070707;
+      border: 1px solid #252525;
+      border-radius: 14px;
+      padding: 13px;
+      margin-bottom: 12px;
+    }
+
+    .course-box input[type="checkbox"] {
+      width: auto;
       margin-right: 8px;
+    }
+
+    .course-title {
+      color: #53fc18;
+      font-weight: bold;
+      margin-bottom: 8px;
     }
 
     button {
       width: 100%;
-      padding: 16px;
+      padding: 17px;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       background: #53fc18;
       color: #000;
       font-size: 18px;
-      font-weight: bold;
+      font-weight: 900;
       cursor: pointer;
+      margin-top: 12px;
+      box-shadow: 0 0 22px rgba(83, 252, 24, 0.3);
     }
 
-    .warning {
-      border-left: 4px solid #53fc18;
-      padding-left: 14px;
+    button:hover {
+      filter: brightness(1.1);
+    }
+
+    .top-button {
+      display: block;
+      text-align: center;
+      background: #53fc18;
+      color: #000;
+      text-decoration: none;
+      font-weight: 900;
+      padding: 14px;
+      border-radius: 14px;
+      margin-top: 16px;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: #777;
+      font-size: 12px;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 12px 10px 30px; }
+      .hero h1 { font-size: 26px; }
+      .card, .hero { padding: 16px; border-radius: 16px; }
+      h2 { font-size: 20px; }
+      p, li, input, textarea { font-size: 14px; }
     }
   </style>
 </head>
 
 <body>
-<div class="container">
+  <div class="container">
 
-  <div class="hero">
-    <h1>Barbecue communautaire Posty78</h1>
-    <p>
-      Le barbecue aura lieu le <strong>samedi 29 août à partir de 10h00</strong>,
-      jusqu'au <strong>dimanche 30 août à 10h00</strong>.
+    <section class="hero">
+      <h1>Barbecue communautaire Posty78</h1>
+      <p>
+        Merci de remplir ce formulaire afin que je puisse organiser au mieux la journée.
+      </p>
+
+      <div class="quick-info">
+        <div class="info-pill">📅 Samedi 29 août 10h → Dimanche 30 août 10h</div>
+        <div class="info-pill">📍 À 3 min de la gare RER Villiers-sur-Marne – Le Plessis-Trévise</div>
+        <div class="info-pill">🔒 Adresse exacte envoyée en MP aux participants validés</div>
+      </div>
+
+      <a class="top-button" href="#formulaire">Remplir le formulaire</a>
+    </section>
+
+    <section class="card">
+      <h2>Informations importantes</h2>
+      <ul>
+        <li>Les enfants ne seront malheureusement pas autorisés.</li>
+        <li>Les drogues dures sont strictement interdites.</li>
+        <li>Il est apprécié de ne pas venir les mains vides, mais ce n'est pas obligatoire.</li>
+        <li>Le lieu sera équipé : barbecue en pierre, barbecue à gaz, cheminée, four, salon, toilettes, cuisine, etc.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>État actuel des courses</h2>
+      <p class="muted">Liste mise à jour manuellement.</p>
+
+      <ul class="shopping-list">
+        <li><strong>Apéritifs :</strong> à compléter</li>
+        <li><strong>Vin / alcool :</strong> à compléter</li>
+        <li><strong>Bières :</strong> à compléter</li>
+        <li><strong>Softs :</strong> à compléter</li>
+        <li><strong>Viande :</strong> à compléter</li>
+        <li><strong>Desserts :</strong> à compléter</li>
+        <li><strong>Divers :</strong> à compléter</li>
+      </ul>
+    </section>
+
+    <section class="card" id="formulaire">
+      <h2>Formulaire d'inscription</h2>
+
+      <form action="https://formspree.io/f/xbdvrgba" method="POST">
+
+        <h3>Informations personnelles</h3>
+
+        <label>Prénom *</label>
+        <input type="text" name="prenom" required>
+
+        <label>Pseudo Kick *</label>
+        <input type="text" name="pseudo_kick" required>
+
+        <label>Discord</label>
+        <input type="text" name="discord" placeholder="Ex : posty78">
+
+        <label>Instagram</label>
+        <input type="text" name="instagram" placeholder="Ex : @posty.78">
+
+        <h3>Présence</h3>
+
+        <label class="check"><input type="checkbox" name="presence" value="Toute la journée"> Je serai présent toute la journée</label>
+        <label class="check"><input type="checkbox" name="presence" value="Une partie de la journée"> Je serai présent uniquement une partie de la journée</label>
+        <label class="check"><input type="checkbox" name="dodo" value="Dort sur place"> Je dormirai sur place</label>
+        <label class="check"><input type="checkbox" name="dodo" value="Ne dort pas sur place"> Je ne dormirai pas sur place</label>
+
+        <label>Heure d'arrivée estimée</label>
+        <input type="text" name="heure_arrivee" placeholder="Ex : samedi vers 14h">
+
+        <label>Heure de départ estimée</label>
+        <input type="text" name="heure_depart" placeholder="Ex : dimanche matin">
+
+        <h3>Participants</h3>
+
+        <label class="check"><input type="checkbox" name="participants" value="Seul"> Je viens seul</label>
+        <label class="check"><input type="checkbox" name="participants" value="Accompagné"> Je viens accompagné</label>
+
+        <label>Nombre total de personnes</label>
+        <input type="text" name="nombre_personnes" placeholder="Ex : 1, 2, 3...">
+
+        <label>Prénom(s) des accompagnants</label>
+        <textarea name="accompagnants"></textarea>
+
+        <h3>Liste des courses</h3>
+
+        <div class="course-box">
+          <div class="course-title"><input type="checkbox" name="courses" value="Apéritifs"> Apéritifs</div>
+          <input type="text" name="aperitifs_detail" placeholder="Ex : chips, biscuits, 4 sachets">
+        </div>
+
+        <div class="course-box">
+          <div class="course-title"><input type="checkbox" name="courses" value="Vin ou alcool"> Vin ou alcool</div>
+          <input type="text" name="alcool_detail" placeholder="Ex : rosé 3L, whisky 1L">
+        </div>
+
+        <div class="course-box">
+          <div class="course-title"><input type="checkbox" name="courses" value="Bière"> Bière</div>
+          <input type="text" name="biere_detail" placeholder="Ex : Leffe 8L, Desperados 4L">
+        </div>
+
+        <div class="course-box">
+          <div class="course-title"><input type="checkbox" name="courses" value="Soft"> Soft</div>
+          <input type="text" name="soft_detail" placeholder="Ex : Coca 4L, Oasis 3L">
+        </div>
+
+        <div class="course-box">
+          <div class="course-title"><input type="checkbox" name="courses" value="Viande"> Viande</div>
+          <input type="text" name="viande_detail" placeholder="Ex : merguez 2kg, bœuf 1kg">
+        </div>
+
+        <div class="course-box">
+          <div class="course-title"><input type="checkbox" name="courses" value="Dessert"> Dessert</div>
+          <input type="text" name="dessert_detail" placeholder="Ex : gâteaux, bonbons, 3 paquets">
+        </div>
+
+        <div class="course-box">
+          <div class="course-title"><input type="checkbox" name="courses" value="Divers"> Divers</div>
+          <input type="text" name="divers_detail" placeholder="Ex : gobelets, serviettes, charbon">
+        </div>
+
+        <h3>Contact</h3>
+
+        <label class="check"><input type="checkbox" name="contact" value="Discord accepté"> J'accepte d'être recontacté sur Discord</label>
+        <label class="check"><input type="checkbox" name="contact" value="Instagram accepté"> J'accepte d'être recontacté sur Instagram</label>
+        <label class="check"><input type="checkbox" name="mp_ouverts" value="Oui"> J'ai vérifié que mes messages privés sont ouverts</label>
+
+        <label>Message complémentaire</label>
+        <textarea name="message" placeholder="Une précision, une question, une contrainte particulière..."></textarea>
+
+        <button type="submit">ENVOYER MON INSCRIPTION</button>
+      </form>
+    </section>
+
+    <p class="footer-note">
+      Barbecue communautaire Posty78 — validation manuelle en MP Discord ou Instagram.
     </p>
-    <p>
-      Le lieu se situe à environ <strong>3 minutes en voiture de la gare RER
-      Villiers-sur-Marne – Le Plessis-Trévise, RER E</strong>.
-    </p>
-    <p class="muted">
-      L'adresse exacte sera communiquée en message privé aux participants validés.
-    </p>
+
   </div>
-
-  <div class="card">
-    <h2>Informations importantes</h2>
-    <ul>
-      <li>Les enfants ne seront malheureusement pas autorisés.</li>
-      <li>Les drogues dures sont strictement interdites.</li>
-      <li>Il est apprécié de ne pas venir les mains vides, mais ce n'est pas obligatoire.</li>
-      <li>Le lieu sera équipé : barbecue en pierre, barbecue à gaz, cheminée, four, salon, toilettes, cuisine, etc.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>État actuel des courses</h2>
-    <p class="muted">Liste mise à jour manuellement.</p>
-    <ul>
-      <li>Apéritifs : à compléter</li>
-      <li>Vin / alcool : à compléter</li>
-      <li>Bières : à compléter</li>
-      <li>Softs : à compléter</li>
-      <li>Viande : à compléter</li>
-      <li>Desserts : à compléter</li>
-      <li>Divers : à compléter</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>Formulaire d'inscription</h2>
-
-    <form action="https://formspree.io/f/xbdvrgba" method="POST">
-
-      <h3>Informations personnelles</h3>
-
-      <label>Prénom</label>
-      <input type="text" name="prenom" required>
-
-      <label>Pseudo Kick</label>
-      <input type="text" name="pseudo_kick" required>
-
-      <label>Discord</label>
-      <input type="text" name="discord">
-
-      <label>Instagram</label>
-      <input type="text" name="instagram">
-
-      <h3>Présence</h3>
-
-      <label class="check"><input type="checkbox" name="presence" value="Toute la journée"> Je serai présent toute la journée</label>
-      <label class="check"><input type="checkbox" name="presence" value="Une partie de la journée"> Je serai présent uniquement une partie de la journée</label>
-      <label class="check"><input type="checkbox" name="dodo" value="Dort sur place"> Je dormirai sur place</label>
-      <label class="check"><input type="checkbox" name="dodo" value="Ne dort pas sur place"> Je ne dormirai pas sur place</label>
-
-      <label>Heure d'arrivée estimée</label>
-      <input type="text" name="heure_arrivee" placeholder="Ex : samedi 14h">
-
-      <label>Heure de départ estimée</label>
-      <input type="text" name="heure_depart" placeholder="Ex : dimanche matin">
-
-      <h3>Participants</h3>
-
-      <label class="check"><input type="checkbox" name="participants" value="Seul"> Je viens seul</label>
-      <label class="check"><input type="checkbox" name="participants" value="Accompagné"> Je viens accompagné</label>
-
-      <label>Nombre total de personnes</label>
-      <input type="text" name="nombre_personnes">
-
-      <label>Prénom(s) des accompagnants</label>
-      <textarea name="accompagnants"></textarea>
-
-      <h3>Liste des courses</h3>
-
-      <label class="check"><input type="checkbox" name="courses" value="Apéritifs"> Apéritifs</label>
-      <input type="text" name="aperitifs_detail" placeholder="Ex : chips, biscuits, 4 sachets">
-
-      <label class="check"><input type="checkbox" name="courses" value="Vin ou alcool"> Vin ou alcool</label>
-      <input type="text" name="alcool_detail" placeholder="Ex : rosé 3L, whisky 1L">
-
-      <label class="check"><input type="checkbox" name="courses" value="Bière"> Bière</label>
-      <input type="text" name="biere_detail" placeholder="Ex : Leffe 8L">
-
-      <label class="check"><input type="checkbox" name="courses" value="Soft"> Soft</label>
-      <input type="text" name="soft_detail" placeholder="Ex : Coca 4L, Oasis 3L">
-
-      <label class="check"><input type="checkbox" name="courses" value="Viande"> Viande</label>
-      <input type="text" name="viande_detail" placeholder="Ex : merguez 2kg, bœuf 1kg">
-
-      <label class="check"><input type="checkbox" name="courses" value="Dessert"> Dessert</label>
-      <input type="text" name="dessert_detail" placeholder="Ex : gâteaux, bonbons, 3 paquets">
-
-      <label class="check"><input type="checkbox" name="courses" value="Divers"> Divers</label>
-      <input type="text" name="divers_detail" placeholder="Ex : gobelets, serviettes, charbon">
-
-      <h3>Contact</h3>
-
-      <label class="check"><input type="checkbox" name="contact" value="Discord accepté"> J'accepte d'être recontacté sur Discord</label>
-      <label class="check"><input type="checkbox" name="contact" value="Instagram accepté"> J'accepte d'être recontacté sur Instagram</label>
-      <label class="check"><input type="checkbox" name="mp_ouverts" value="Oui"> J'ai vérifié que mes messages privés sont ouverts</label>
-
-      <label>Message complémentaire</label>
-      <textarea name="message"></textarea>
-
-      <button type="submit">Envoyer mon inscription</button>
-    </form>
-  </div>
-
-</div>
 </body>
 </html>
