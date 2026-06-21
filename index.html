@@ -1,13 +1,125 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<title>Barbecue Posty78</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barbecue communautaire Posty78</title>
 </head>
 <body>
 
 <h1>Barbecue communautaire Posty78</h1>
 
-<p>Page en construction.</p>
+<p>
+Bonjour, voici le formulaire concernant le barbecue communautaire qui aura lieu le
+<strong>samedi 29 août à partir de 10h00</strong> jusqu'au
+<strong>dimanche 30 août à 10h00</strong>.
+</p>
+
+<p>
+Le lieu se situe à environ <strong>3 minutes en voiture de la gare RER Villiers-sur-Marne – Le Plessis-Trévise, RER E</strong>.
+L'adresse exacte sera communiquée en message privé aux participants validés.
+</p>
+
+<h2>Informations importantes</h2>
+<ul>
+  <li>Les enfants ne seront malheureusement pas autorisés.</li>
+  <li>Les drogues dures sont strictement interdites.</li>
+  <li>Il est apprécié de ne pas venir les mains vides, mais ce n'est pas obligatoire.</li>
+  <li>Le lieu sera équipé : barbecue en pierre, barbecue à gaz, cheminée, four, salon, toilettes, cuisine, etc.</li>
+</ul>
+
+<h2>État actuel des courses</h2>
+<p><em>Liste mise à jour manuellement.</em></p>
+
+<ul>
+  <li>Apéritifs : à compléter</li>
+  <li>Vin / alcool : à compléter</li>
+  <li>Bières : à compléter</li>
+  <li>Softs : à compléter</li>
+  <li>Viande : à compléter</li>
+  <li>Desserts : à compléter</li>
+  <li>Divers : à compléter</li>
+</ul>
+
+<hr>
+
+<h2>Formulaire d'inscription</h2>
+
+<form action="https://formspree.io/f/xbdvrgba" method="POST">
+
+  <h3>Informations personnelles</h3>
+
+  <label>Prénom :</label><br>
+  <input type="text" name="prenom" required><br><br>
+
+  <label>Pseudo Kick :</label><br>
+  <input type="text" name="pseudo_kick" required><br><br>
+
+  <label>Discord :</label><br>
+  <input type="text" name="discord"><br><br>
+
+  <label>Instagram :</label><br>
+  <input type="text" name="instagram"><br><br>
+
+  <h3>Présence</h3>
+
+  <label><input type="checkbox" name="presence" value="Toute la journée"> Je serai présent toute la journée</label><br>
+  <label><input type="checkbox" name="presence" value="Une partie de la journée"> Je serai présent uniquement une partie de la journée</label><br>
+  <label><input type="checkbox" name="dodo" value="Dort sur place"> Je dormirai sur place</label><br>
+  <label><input type="checkbox" name="dodo" value="Ne dort pas sur place"> Je ne dormirai pas sur place</label><br><br>
+
+  <label>Heure d'arrivée estimée :</label><br>
+  <input type="text" name="heure_arrivee"><br><br>
+
+  <label>Heure de départ estimée :</label><br>
+  <input type="text" name="heure_depart"><br><br>
+
+  <h3>Participants</h3>
+
+  <label><input type="checkbox" name="participants" value="Seul"> Je viens seul</label><br>
+  <label><input type="checkbox" name="participants" value="Accompagné"> Je viens accompagné</label><br><br>
+
+  <label>Nombre total de personnes :</label><br>
+  <input type="text" name="nombre_personnes"><br><br>
+
+  <label>Prénom(s) des accompagnants :</label><br>
+  <textarea name="accompagnants"></textarea><br><br>
+
+  <h3>Liste des courses</h3>
+
+  <label><input type="checkbox" name="courses" value="Apéritifs"> Apéritifs</label><br>
+  <input type="text" name="aperitifs_detail" placeholder="Ex : chips, biscuits, nombre de sachets"><br><br>
+
+  <label><input type="checkbox" name="courses" value="Vin ou alcool"> Vin ou alcool</label><br>
+  <input type="text" name="alcool_detail" placeholder="Ex : rosé 3L, whisky 1L"><br><br>
+
+  <label><input type="checkbox" name="courses" value="Bière"> Bière</label><br>
+  <input type="text" name="biere_detail" placeholder="Ex : Leffe 8L, Desperados 4L"><br><br>
+
+  <label><input type="checkbox" name="courses" value="Soft"> Soft</label><br>
+  <input type="text" name="soft_detail" placeholder="Ex : Coca 4L, Oasis 3L"><br><br>
+
+  <label><input type="checkbox" name="courses" value="Viande"> Viande</label><br>
+  <input type="text" name="viande_detail" placeholder="Ex : merguez 2kg, bœuf 1kg"><br><br>
+
+  <label><input type="checkbox" name="courses" value="Dessert"> Dessert</label><br>
+  <input type="text" name="dessert_detail" placeholder="Ex : gâteaux, bonbons, nombre de paquets"><br><br>
+
+  <label><input type="checkbox" name="courses" value="Divers"> Divers</label><br>
+  <input type="text" name="divers_detail" placeholder="Ex : gobelets, serviettes, charbon"><br><br>
+
+  <h3>Contact</h3>
+
+  <label><input type="checkbox" name="contact" value="Discord accepté"> J'accepte d'être recontacté sur Discord</label><br>
+  <label><input type="checkbox" name="contact" value="Instagram accepté"> J'accepte d'être recontacté sur Instagram</label><br>
+  <label><input type="checkbox" name="mp_ouverts" value="Oui"> J'ai vérifié que mes messages privés sont ouverts</label><br><br>
+
+  <label>Message complémentaire :</label><br>
+  <textarea name="message"></textarea><br><br>
+
+  <button type="submit">Envoyer mon inscription</button>
+
+</form>
 
 </body>
 </html>
