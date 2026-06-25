@@ -3,362 +3,710 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Barbecue communautaire Posty78</title>
-  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="description" content="Barbecue communautaire Posty78 — Samedi 29 août 2026" />
+  <title>Barbecue Posty78</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #102010 0%, #050505 38%, #000 100%);
-      color: #fff;
+    :root {
+      --bg:         #0a0a0a;
+      --bg-card:    rgba(0,0,0,0.75);
+      --border:     rgba(0,255,0,0.25);
+      --green:      #00ff00;
+      --green-dim:  rgba(0,255,0,0.1);
+      --orange:     #f97316;
+      --orange-dim: rgba(249,115,22,0.12);
+      --red:        #ef4444;
+      --white:      #ffffff;
+      --muted:      #557755;
+      --font:       "Inter", system-ui, sans-serif;
+      --mono:       "JetBrains Mono", monospace;
+      --radius-sm:  6px;
+      --radius-md:  12px;
+      --radius-lg:  20px;
+      --transition: 200ms cubic-bezier(0.4,0,0.2,1);
     }
 
-    .container {
-      max-width: 860px;
-      margin: auto;
-      padding: 18px 14px 40px;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--white); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
 
-    .hero {
-      background: linear-gradient(135deg, #111, #060606);
-      border: 1px solid #53fc18;
-      border-radius: 20px;
-      padding: 22px;
-      margin-bottom: 18px;
-      box-shadow: 0 0 24px rgba(83, 252, 24, 0.12);
-    }
+    /* ─── Header ───────────────────────────────────────────────────────── */
+    .header { position: sticky; top: 0; z-index: 100; background: rgba(0,0,0,0.92); border-bottom: 1px solid var(--border); backdrop-filter: blur(12px); }
+    .header__inner { max-width: 1000px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .header__brand { display: flex; flex-direction: column; gap: 2px; }
+    .header__eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--green); text-shadow: 0 0 8px var(--green); }
+    .header__name { font-size: 24px; font-weight: 900; color: var(--white); }
+    .header__kick { font-size: 13px; font-weight: 700; color: var(--green); background: var(--green-dim); border: 1px solid var(--border); padding: 7px 16px; border-radius: var(--radius-md); transition: all var(--transition); text-shadow: 0 0 8px var(--green); }
+    .header__kick:hover { background: rgba(0,255,0,0.18); border-color: var(--green); }
 
-    .hero h1 {
-      margin: 0 0 14px;
-      color: #53fc18;
-      font-size: 32px;
-      line-height: 1.05;
-    }
+    /* ─── Hero ─────────────────────────────────────────────────────────── */
+    .hero { padding: 80px 24px 60px; text-align: center; border-bottom: 1px solid var(--border); background: radial-gradient(ellipse at top, rgba(249,115,22,0.06) 0%, rgba(0,255,0,0.03) 40%, transparent 70%); }
+    .hero__inner { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .hero__emoji { font-size: 64px; line-height: 1; }
+    .hero__eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); text-shadow: 0 0 10px var(--orange); }
+    .hero__title { font-size: 56px; font-weight: 900; color: var(--white); line-height: 1.05; letter-spacing: -0.02em; text-shadow: 0 0 40px rgba(249,115,22,0.2); }
+    .hero__title span { color: var(--green); text-shadow: 0 0 20px var(--green); }
+    .hero__sub { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.6; max-width: 520px; }
+    .hero__date { background: rgba(249,115,22,0.1); border: 2px solid var(--orange); border-radius: var(--radius-lg); padding: 16px 28px; display: inline-flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; color: var(--orange); text-shadow: 0 0 8px var(--orange); }
+    .hero__btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+    .btn-primary { padding: 14px 32px; background: var(--green); color: #000; font-size: 16px; font-weight: 800; border-radius: var(--radius-md); border: none; cursor: pointer; transition: all var(--transition); box-shadow: 0 0 20px rgba(0,255,0,0.3); font-family: var(--font); }
+    .btn-primary:hover { opacity: 0.88; box-shadow: 0 0 30px rgba(0,255,0,0.5); transform: translateY(-2px); }
+    .btn-secondary { padding: 14px 32px; background: transparent; color: var(--white); font-size: 16px; font-weight: 700; border-radius: var(--radius-md); border: 2px solid var(--border); cursor: pointer; transition: all var(--transition); font-family: var(--font); }
+    .btn-secondary:hover { border-color: var(--green); color: var(--green); }
+    .hero__live { font-size: 13px; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 6px; }
+    .hero__live span { color: var(--green); font-weight: 600; }
 
-    .quick-info {
-      display: grid;
-      gap: 10px;
-      margin-top: 16px;
-    }
+    /* ─── Infos rapides ─────────────────────────────────────────────────── */
+    .infos { padding: 60px 24px; border-bottom: 1px solid var(--border); }
+    .infos__inner { max-width: 1000px; margin: 0 auto; }
+    .section__title { font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); text-shadow: 0 0 8px var(--green); text-align: center; margin-bottom: 8px; }
+    .section__heading { font-size: 30px; font-weight: 900; color: var(--white); text-align: center; margin-bottom: 36px; }
+    .infos__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .info-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 20px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; backdrop-filter: blur(8px); transition: border-color var(--transition); }
+    .info-card:hover { border-color: var(--green); }
+    .info-card__icon { font-size: 32px; }
+    .info-card__label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .info-card__value { font-size: 15px; font-weight: 700; color: var(--white); line-height: 1.4; }
+    .info-card__sub { font-size: 12px; color: rgba(255,255,255,0.5); }
 
-    .info-pill {
-      background: #050505;
-      border: 1px solid #2b2b2b;
-      border-radius: 14px;
-      padding: 12px;
-      color: #eee;
-      font-weight: bold;
-    }
+    /* ─── Comment ça marche ─────────────────────────────────────────────── */
+    .steps { padding: 60px 24px; border-bottom: 1px solid var(--border); background: rgba(0,255,0,0.015); }
+    .steps__grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .step-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; position: relative; }
+    .step-card__num { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); width: 26px; height: 26px; background: var(--green); color: #000; font-size: 12px; font-weight: 900; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .step-card__icon { font-size: 32px; margin-top: 8px; }
+    .step-card__title { font-size: 14px; font-weight: 800; color: var(--white); }
+    .step-card__desc { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.5; }
 
-    .card {
-      background: #111;
-      border: 1px solid #282828;
-      border-radius: 18px;
-      padding: 20px;
-      margin-bottom: 18px;
-    }
+    /* ─── Ce que tu peux ramener ────────────────────────────────────────── */
+    .apports { padding: 60px 24px; border-bottom: 1px solid var(--border); }
+    .apports__grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .apport-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 18px 16px; display: flex; align-items: center; gap: 12px; transition: border-color var(--transition); }
+    .apport-card:hover { border-color: var(--orange); }
+    .apport-card__icon { font-size: 28px; flex-shrink: 0; }
+    .apport-card__text { font-size: 14px; font-weight: 600; color: var(--white); }
+    .apport-card__sub { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
 
-    h2 {
-      margin-top: 0;
-      color: #53fc18;
-      font-size: 24px;
-    }
+    /* ─── État des courses ──────────────────────────────────────────────── */
+    .courses { padding: 60px 24px; border-bottom: 1px solid var(--border); background: rgba(0,255,0,0.015); }
+    .courses__grid { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+    .course-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px 20px; }
+    .course-item__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; gap: 12px; }
+    .course-item__label { font-size: 14px; font-weight: 600; color: var(--white); display: flex; align-items: center; gap: 8px; }
+    .course-item__count { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--green); white-space: nowrap; }
+    .course-item__bar { height: 6px; background: rgba(0,255,0,0.1); border-radius: 99px; overflow: hidden; }
+    .course-item__fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--green), #aaff00); transition: width 1s ease; box-shadow: 0 0 6px var(--green); }
+    .course-item__fill--orange { background: linear-gradient(90deg, var(--orange), #fbbf24); box-shadow: 0 0 6px var(--orange); }
+    .course-note { max-width: 1000px; margin: 16px auto 0; font-size: 12px; color: var(--muted); text-align: center; }
 
-    h3 {
-      margin-top: 26px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #333;
-      color: #fff;
-      font-size: 18px;
-    }
+    /* ─── Règles ────────────────────────────────────────────────────────── */
+    .regles { padding: 60px 24px; border-bottom: 1px solid var(--border); }
+    .regles__grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .regle-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px 18px; display: flex; align-items: flex-start; gap: 12px; }
+    .regle-card--green { border-color: rgba(0,255,0,0.3); }
+    .regle-card--red   { border-color: rgba(239,68,68,0.3); }
+    .regle-card__icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .regle-card__text { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.5; }
+    .regle-card__text strong { color: var(--white); display: block; margin-bottom: 2px; }
 
-    p, li {
-      color: #ddd;
-      line-height: 1.5;
-      font-size: 15px;
-    }
-
-    .muted {
-      color: #aaa;
-      font-size: 13px;
-    }
-
-    .shopping-list {
-      display: grid;
-      gap: 8px;
-      padding: 0;
-      list-style: none;
-    }
-
-    .shopping-list li {
-      background: #070707;
-      border: 1px solid #252525;
-      border-radius: 12px;
-      padding: 10px 12px;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      color: #eee;
-      margin-bottom: 6px;
-    }
-
-    input, textarea {
+    /* ─── Formulaire ────────────────────────────────────────────────────── */
+    .formulaire { padding: 60px 24px 80px; background: rgba(0,255,0,0.015); }
+    .form-wrap { max-width: 640px; margin: 0 auto; background: var(--bg-card); border: 2px solid var(--border); border-radius: var(--radius-lg); padding: 36px 32px; backdrop-filter: blur(12px); box-shadow: 0 0 40px rgba(0,255,0,0.06); }
+    .form-section { margin-bottom: 28px; }
+    .form-section__title { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .form-group { margin-bottom: 16px; }
+    .form-label { display: block; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8); margin-bottom: 6px; }
+    .form-label span { color: var(--green); }
+    .form-input, .form-select, .form-textarea {
       width: 100%;
-      padding: 13px;
-      border-radius: 12px;
-      border: 1px solid #333;
-      background: #050505;
-      color: #fff;
-      font-size: 15px;
-      margin-bottom: 14px;
+      background: rgba(0,255,0,0.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 14px;
       outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
     }
+    .form-input, .form-select { height: 46px; padding: 0 14px; }
+    .form-textarea { padding: 12px 14px; resize: vertical; min-height: 90px; }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--green); box-shadow: 0 0 10px rgba(0,255,0,0.15); }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.2); }
+    .form-select { appearance: none; cursor: pointer; }
+    .form-select option { background: #1a1a1a; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-checks { display: flex; flex-direction: column; gap: 10px; }
+    .form-check { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+    .form-check input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--green); cursor: pointer; flex-shrink: 0; margin-top: 1px; }
+    .form-check__label { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.4; }
+    .form-check--required .form-check__label { color: rgba(255,255,255,0.9); }
+    .form-submit { width: 100%; height: 52px; background: var(--green); color: #000; font-size: 16px; font-weight: 800; border: none; border-radius: var(--radius-md); cursor: pointer; transition: all var(--transition); font-family: var(--font); box-shadow: 0 0 20px rgba(0,255,0,0.3); margin-top: 8px; }
+    .form-submit:hover { opacity: 0.88; box-shadow: 0 0 30px rgba(0,255,0,0.5); transform: translateY(-2px); }
+    .form-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .form-note { font-size: 12px; color: var(--muted); text-align: center; margin-top: 14px; line-height: 1.5; }
 
-    input:focus, textarea:focus {
-      border-color: #53fc18;
-      box-shadow: 0 0 0 2px rgba(83, 252, 24, 0.15);
+    /* ─── Message succès/erreur ─────────────────────────────────────────── */
+    .form-success { display: none; text-align: center; padding: 32px; }
+    .form-success__icon { font-size: 52px; margin-bottom: 16px; display: block; }
+    .form-success__title { font-size: 22px; font-weight: 800; color: var(--green); margin-bottom: 10px; }
+    .form-success__text { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+    .form-error { display: none; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.3); border-radius: var(--radius-md); padding: 14px 18px; font-size: 13px; color: #fca5a5; margin-top: 12px; text-align: center; }
+
+    /* ─── Footer ────────────────────────────────────────────────────────── */
+    .footer { border-top: 1px solid var(--border); padding: 32px 24px; background: rgba(0,0,0,0.6); }
+    .footer__inner { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+    .footer__name { font-size: 20px; font-weight: 900; color: var(--green); text-shadow: 0 0 10px var(--green); }
+    .footer__links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .footer__links a { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.5); transition: color var(--transition); }
+    .footer__links a:hover { color: var(--green); }
+    .footer__legal { font-size: 11px; color: var(--muted); }
+
+    /* ─── Responsive ────────────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .infos__grid  { grid-template-columns: repeat(2, 1fr); }
+      .steps__grid  { grid-template-columns: repeat(2, 1fr); }
+      .apports__grid{ grid-template-columns: repeat(2, 1fr); }
+      .regles__grid { grid-template-columns: 1fr; }
+      .hero__title  { font-size: 38px; }
     }
-
-    textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
-
-    .check {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      background: #070707;
-      border: 1px solid #252525;
-      border-radius: 12px;
-      padding: 11px;
-      margin-bottom: 9px;
-      font-weight: normal;
-    }
-
-    .check input {
-      width: auto;
-      margin: 2px 0 0;
-      transform: scale(1.1);
-    }
-
-    .course-box {
-      background: #070707;
-      border: 1px solid #252525;
-      border-radius: 14px;
-      padding: 13px;
-      margin-bottom: 12px;
-    }
-
-    .course-box input[type="checkbox"] {
-      width: auto;
-      margin-right: 8px;
-    }
-
-    .course-title {
-      color: #53fc18;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    button {
-      width: 100%;
-      padding: 17px;
-      border: none;
-      border-radius: 14px;
-      background: #53fc18;
-      color: #000;
-      font-size: 18px;
-      font-weight: 900;
-      cursor: pointer;
-      margin-top: 12px;
-      box-shadow: 0 0 22px rgba(83, 252, 24, 0.3);
-    }
-
-    button:hover {
-      filter: brightness(1.1);
-    }
-
-    .top-button {
-      display: block;
-      text-align: center;
-      background: #53fc18;
-      color: #000;
-      text-decoration: none;
-      font-weight: 900;
-      padding: 14px;
-      border-radius: 14px;
-      margin-top: 16px;
-    }
-
-    .footer-note {
-      text-align: center;
-      color: #777;
-      font-size: 12px;
-      margin-top: 18px;
-    }
-
-    @media (max-width: 600px) {
-      .container { padding: 12px 10px 30px; }
-      .hero h1 { font-size: 26px; }
-      .card, .hero { padding: 16px; border-radius: 16px; }
-      h2 { font-size: 20px; }
-      p, li, input, textarea { font-size: 14px; }
+    @media (max-width: 480px) {
+      .infos__grid  { grid-template-columns: 1fr; }
+      .steps__grid  { grid-template-columns: 1fr; }
+      .apports__grid{ grid-template-columns: 1fr; }
+      .form-row     { grid-template-columns: 1fr; }
+      .hero__title  { font-size: 30px; }
+      .hero__emoji  { font-size: 48px; }
+      .form-wrap    { padding: 24px 16px; }
+      .hero__btns   { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-secondary { width: 100%; text-align: center; }
     }
   </style>
 </head>
-
 <body>
-  <div class="container">
 
-    <section class="hero">
-      <h1>Barbecue communautaire Posty78</h1>
-      <p>
-        Merci de remplir ce formulaire afin que je puisse organiser au mieux la journée.
-      </p>
+<!-- ─── Header ──────────────────────────────────────────────────────────── -->
+<header class="header">
+  <div class="header__inner">
+    <div class="header__brand">
+      <span class="header__eyebrow">Événement communautaire</span>
+      <span class="header__name">Posty78</span>
+    </div>
+    <a href="https://kick.com/posty78" target="_blank" class="header__kick">
+      🟢 kick.com/posty78
+    </a>
+  </div>
+</header>
 
-      <div class="quick-info">
-        <div class="info-pill">📅 Samedi 29 août 10h → Dimanche 30 août 10h</div>
-        <div class="info-pill">📍 À 3 min de la gare RER Villiers-sur-Marne – Le Plessis-Trévise</div>
-        <div class="info-pill">🔒 Adresse exacte envoyée en MP aux participants validés</div>
+<!-- ─── Hero ────────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero__inner">
+    <span class="hero__emoji">🔥</span>
+    <span class="hero__eyebrow">Édition 2026</span>
+    <h1 class="hero__title">BARBECUE<br><span>POSTY78</span></h1>
+    <p class="hero__sub">Un moment simple entre viewers, autour d'un barbecue, dans le respect et la bonne ambiance.</p>
+    <div class="hero__date">
+      📅 Sam 29 août 10h00 → Dim 30 août 10h00
+    </div>
+    <div class="hero__btns">
+      <a href="#formulaire" class="btn-primary">🔥 Je m'inscris</a>
+      <a href="#infos" class="btn-secondary">Voir les infos</a>
+    </div>
+    <p class="hero__live">🟢 <span>Une partie du jardin sera diffusée en live sur Kick</span> — aucune obligation d'être filmé</p>
+  </div>
+</section>
+
+<!-- ─── Infos rapides ────────────────────────────────────────────────────── -->
+<section class="infos" id="infos">
+  <div class="infos__inner">
+    <p class="section__title">📋 Informations pratiques</p>
+    <h2 class="section__heading">Tout ce qu'il faut savoir</h2>
+    <div class="infos__grid">
+      <div class="info-card">
+        <span class="info-card__icon">📅</span>
+        <span class="info-card__label">Date</span>
+        <span class="info-card__value">Sam 29 août 10h00<br>→ Dim 30 août 10h00</span>
+        <span class="info-card__sub">24h de barbecue</span>
+      </div>
+      <div class="info-card">
+        <span class="info-card__icon">📍</span>
+        <span class="info-card__label">Secteur</span>
+        <span class="info-card__value">Villiers-sur-Marne<br>Le Plessis-Trévise</span>
+        <span class="info-card__sub">Adresse exacte communiquée aux confirmés</span>
+      </div>
+      <div class="info-card">
+        <span class="info-card__icon">🚆</span>
+        <span class="info-card__label">Transport</span>
+        <span class="info-card__value">RER E</span>
+        <span class="info-card__sub">À 3 min de la gare</span>
+      </div>
+      <div class="info-card">
+        <span class="info-card__icon">👥</span>
+        <span class="info-card__label">Participants</span>
+        <span class="info-card__value">Sur inscription</span>
+        <span class="info-card__sub">Validation manuelle en MP</span>
+      </div>
+      <div class="info-card">
+        <span class="info-card__icon">🔞</span>
+        <span class="info-card__label">Âge</span>
+        <span class="info-card__value">Majeurs uniquement</span>
+        <span class="info-card__sub">Pas d'enfants</span>
+      </div>
+      <div class="info-card">
+        <span class="info-card__icon">📩</span>
+        <span class="info-card__label">Contact</span>
+        <span class="info-card__value">Discord ou Instagram</span>
+        <span class="info-card__sub">contact@posty78.fr</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Comment ça marche ────────────────────────────────────────────────── -->
+<section class="steps">
+  <div class="section__title" style="max-width:1000px;margin:0 auto 8px;">🗺️ Comment ça marche</div>
+  <h2 class="section__heading">4 étapes simples</h2>
+  <div class="steps__grid">
+    <div class="step-card">
+      <span class="step-card__num">1</span>
+      <span class="step-card__icon">📝</span>
+      <span class="step-card__title">Tu t'inscris</span>
+      <p class="step-card__desc">Tu remplis le formulaire en bas de page avec tes infos et disponibilités.</p>
+    </div>
+    <div class="step-card">
+      <span class="step-card__num">2</span>
+      <span class="step-card__icon">✅</span>
+      <span class="step-card__title">Je valide</span>
+      <p class="step-card__desc">Je reviens vers toi en MP Discord ou Instagram pour confirmer ta place.</p>
+    </div>
+    <div class="step-card">
+      <span class="step-card__num">3</span>
+      <span class="step-card__icon">📍</span>
+      <span class="step-card__title">Tu reçois l'adresse</span>
+      <p class="step-card__desc">L'adresse exacte est communiquée uniquement aux personnes confirmées.</p>
+    </div>
+    <div class="step-card">
+      <span class="step-card__num">4</span>
+      <span class="step-card__icon">🔥</span>
+      <span class="step-card__title">On se retrouve !</span>
+      <p class="step-card__desc">Samedi 29 août à 10h, on allume le barbecue et c'est parti !</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Ce que tu peux ramener ───────────────────────────────────────────── -->
+<section class="apports">
+  <div style="max-width:1000px;margin:0 auto;">
+    <p class="section__title">🎒 Ce que tu peux ramener</p>
+    <h2 class="section__heading">Pas obligatoire, mais apprécié !</h2>
+    <div class="apports__grid">
+      <div class="apport-card">
+        <span class="apport-card__icon">🥩</span>
+        <div>
+          <div class="apport-card__text">Nourriture</div>
+          <div class="apport-card__sub">Viande, accompagnements, snacks</div>
+        </div>
+      </div>
+      <div class="apport-card">
+        <span class="apport-card__icon">🥤</span>
+        <div>
+          <div class="apport-card__text">Boissons</div>
+          <div class="apport-card__sub">Softs, alcool, jus...</div>
+        </div>
+      </div>
+      <div class="apport-card">
+        <span class="apport-card__icon">🍖</span>
+        <div>
+          <div class="apport-card__text">Charbon / allume-feu</div>
+          <div class="apport-card__sub">Toujours utile !</div>
+        </div>
+      </div>
+      <div class="apport-card">
+        <span class="apport-card__icon">🍽️</span>
+        <div>
+          <div class="apport-card__text">Couverts / assiettes</div>
+          <div class="apport-card__sub">Serviettes, nappes...</div>
+        </div>
+      </div>
+      <div class="apport-card">
+        <span class="apport-card__icon">🔊</span>
+        <div>
+          <div class="apport-card__text">Enceinte / matériel</div>
+          <div class="apport-card__sub">Pour l'ambiance !</div>
+        </div>
+      </div>
+      <div class="apport-card">
+        <span class="apport-card__icon">😄</span>
+        <div>
+          <div class="apport-card__text">Bonne humeur</div>
+          <div class="apport-card__sub">C'est le principal !</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── État des courses ─────────────────────────────────────────────────── -->
+<section class="courses">
+  <div style="max-width:1000px;margin:0 auto;">
+    <p class="section__title">🛒 État des courses</p>
+    <h2 class="section__heading">Mise à jour en temps réel</h2>
+    <div class="courses__grid">
+
+      <div class="course-item">
+        <div class="course-item__top">
+          <span class="course-item__label">🍟 Apéritifs <small style="color:var(--muted);font-weight:400;">(chips, biscuits, cacahuètes...)</small></span>
+          <span class="course-item__count" id="count-aperitifs">0 / 25 sachets</span>
+        </div>
+        <div class="course-item__bar"><div class="course-item__fill" id="bar-aperitifs" style="width:0%"></div></div>
       </div>
 
-      <a class="top-button" href="#formulaire">Remplir le formulaire</a>
-    </section>
-
-    <section class="card">
-      <h2>Informations importantes</h2>
-      <ul>
-        <li>Les enfants ne seront malheureusement pas autorisés.</li>
-        <li>Les drogues dures sont strictement interdites.</li>
-        <li>Il est apprécié de ne pas venir les mains vides, mais ce n'est pas obligatoire.</li>
-        <li>Le lieu sera équipé : barbecue en pierre, barbecue à gaz, cheminée, four, salon, toilettes, cuisine, etc.</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>État actuel des courses</h2>
-      <p class="muted">Liste mise à jour manuellement.</p>
-
-      <ul class="shopping-list">
-  <li><strong>Apéritifs (chips, biscuits, cacahuètes, etc.) :</strong> 0 / 25 sachets</li>
-
-  <li><strong>Vin / alcool (rosé, whisky, rhum, vodka, etc.) :</strong> 0 / 15 L</li>
-
-  <li><strong>Bières (Leffe, Desperados, Heineken, etc.) :</strong> 0 / 45 L</li>
-
-  <li><strong>Softs (Coca-Cola, Oasis, Ice Tea, etc.) :</strong> 0 / 35 L</li>
-
-  <li><strong>Viande (bœuf, veau, merguez, saucisses, etc.) :</strong> 0 / 25 kg</li>
-
-  <li><strong>Desserts (Kinder, gâteaux, bonbons, etc.) :</strong> 0 / 20 paquets</li>
-
-  <li><strong>Divers :</strong> à compléter</li>
-</ul>
-    </section>
-
-    <section class="card" id="formulaire">
-      <h2>Formulaire d'inscription</h2>
-
-      <form action="https://formspree.io/f/xbdvrgba" method="POST">
-      <input type="hidden" name="_next" value="https://posty78.github.io/barbecue-posty78/merci.html">
-        <h3>Informations personnelles</h3>
-
-        <label>Prénom *</label>
-        <input type="text" name="prenom" required>
-
-        <label>Pseudo Kick *</label>
-        <input type="text" name="pseudo_kick" required>
-
-        <label>Discord</label>
-        <input type="text" name="discord" placeholder="Ex : posty78">
-
-        <label>Instagram</label>
-        <input type="text" name="instagram" placeholder="Ex : @posty.78">
-
-        <h3>Présence</h3>
-
-        <label class="check"><input type="checkbox" name="presence" value="Toute la journée"> Je serai présent toute la journée</label>
-        <label class="check"><input type="checkbox" name="presence" value="Une partie de la journée"> Je serai présent uniquement une partie de la journée</label>
-        <label class="check"><input type="checkbox" name="dodo" value="Dort sur place"> Je dormirai sur place</label>
-        <label class="check"><input type="checkbox" name="dodo" value="Ne dort pas sur place"> Je ne dormirai pas sur place</label>
-
-        <label>Heure d'arrivée estimée</label>
-        <input type="text" name="heure_arrivee" placeholder="Ex : samedi vers 14h">
-
-        <label>Heure de départ estimée</label>
-        <input type="text" name="heure_depart" placeholder="Ex : dimanche matin">
-
-        <h3>Participants</h3>
-
-        <label class="check"><input type="checkbox" name="participants" value="Seul"> Je viens seul</label>
-        <label class="check"><input type="checkbox" name="participants" value="Accompagné"> Je viens accompagné</label>
-
-        <label>Nombre total de personnes</label>
-        <input type="text" name="nombre_personnes" placeholder="Ex : 1, 2, 3...">
-
-        <label>Prénom(s) des accompagnants</label>
-        <textarea name="accompagnants"></textarea>
-
-        <h3>Liste des courses</h3>
-
-        <div class="course-box">
-          <div class="course-title"><input type="checkbox" name="courses" value="Apéritifs"> Apéritifs</div>
-          <input type="text" name="aperitifs_detail" placeholder="Ex : chips, biscuits, 4 sachets">
+      <div class="course-item">
+        <div class="course-item__top">
+          <span class="course-item__label">🍷 Vin / alcool <small style="color:var(--muted);font-weight:400;">(rosé, whisky, rhum...)</small></span>
+          <span class="course-item__count" id="count-alcool">0 / 15 L</span>
         </div>
+        <div class="course-item__bar"><div class="course-item__fill course-item__fill--orange" id="bar-alcool" style="width:0%"></div></div>
+      </div>
 
-        <div class="course-box">
-          <div class="course-title"><input type="checkbox" name="courses" value="Vin ou alcool"> Vin ou alcool</div>
-          <input type="text" name="alcool_detail" placeholder="Ex : rosé 3L, whisky 1L">
+      <div class="course-item">
+        <div class="course-item__top">
+          <span class="course-item__label">🍺 Bières <small style="color:var(--muted);font-weight:400;">(Leffe, Desperados, Heineken...)</small></span>
+          <span class="course-item__count" id="count-bieres">0 / 45 L</span>
         </div>
+        <div class="course-item__bar"><div class="course-item__fill course-item__fill--orange" id="bar-bieres" style="width:0%"></div></div>
+      </div>
 
-        <div class="course-box">
-          <div class="course-title"><input type="checkbox" name="courses" value="Bière"> Bière</div>
-          <input type="text" name="biere_detail" placeholder="Ex : Leffe 8L, Desperados 4L">
+      <div class="course-item">
+        <div class="course-item__top">
+          <span class="course-item__label">🥤 Softs <small style="color:var(--muted);font-weight:400;">(Coca, Oasis, Ice Tea...)</small></span>
+          <span class="course-item__count" id="count-softs">0 / 35 L</span>
         </div>
+        <div class="course-item__bar"><div class="course-item__fill" id="bar-softs" style="width:0%"></div></div>
+      </div>
 
-        <div class="course-box">
-          <div class="course-title"><input type="checkbox" name="courses" value="Soft"> Soft</div>
-          <input type="text" name="soft_detail" placeholder="Ex : Coca 4L, Oasis 3L">
+      <div class="course-item">
+        <div class="course-item__top">
+          <span class="course-item__label">🥩 Viande <small style="color:var(--muted);font-weight:400;">(bœuf, merguez, saucisses...)</small></span>
+          <span class="course-item__count" id="count-viande">0 / 25 kg</span>
         </div>
+        <div class="course-item__bar"><div class="course-item__fill course-item__fill--orange" id="bar-viande" style="width:0%"></div></div>
+      </div>
 
-        <div class="course-box">
-          <div class="course-title"><input type="checkbox" name="courses" value="Viande"> Viande</div>
-          <input type="text" name="viande_detail" placeholder="Ex : merguez 2kg, bœuf 1kg">
+      <div class="course-item">
+        <div class="course-item__top">
+          <span class="course-item__label">🍰 Desserts <small style="color:var(--muted);font-weight:400;">(Kinder, gâteaux, bonbons...)</small></span>
+          <span class="course-item__count" id="count-desserts">0 / 20 paquets</span>
         </div>
+        <div class="course-item__bar"><div class="course-item__fill" id="bar-desserts" style="width:0%"></div></div>
+      </div>
 
-        <div class="course-box">
-          <div class="course-title"><input type="checkbox" name="courses" value="Dessert"> Dessert</div>
-          <input type="text" name="dessert_detail" placeholder="Ex : gâteaux, bonbons, 3 paquets">
-        </div>
-
-        <div class="course-box">
-          <div class="course-title"><input type="checkbox" name="courses" value="Divers"> Divers</div>
-          <input type="text" name="divers_detail" placeholder="Ex : gobelets, serviettes, charbon">
-        </div>
-
-        <h3>Contact</h3>
-
-        <label class="check"><input type="checkbox" name="contact" value="Discord accepté"> J'accepte d'être recontacté sur Discord</label>
-        <label class="check"><input type="checkbox" name="contact" value="Instagram accepté"> J'accepte d'être recontacté sur Instagram</label>
-        <label class="check"><input type="checkbox" name="mp_ouverts" value="Oui"> J'ai vérifié que mes messages privés sont ouverts</label>
-
-        <label>Message complémentaire</label>
-        <textarea name="message" placeholder="Une précision, une question, une contrainte particulière..."></textarea>
-
-        <button type="submit">ENVOYER MON INSCRIPTION</button>
-      </form>
-    </section>
-
-    <p class="footer-note">
-      Barbecue communautaire Posty78 — validation manuelle en MP Discord ou Instagram.
-    </p>
-
+    </div>
+    <p class="course-note">⚠️ Liste mise à jour manuellement par Posty78 au fur et à mesure des confirmations.</p>
   </div>
+</section>
+
+<!-- ─── Règles ───────────────────────────────────────────────────────────── -->
+<section class="regles">
+  <div style="max-width:1000px;margin:0 auto;">
+    <p class="section__title">📜 Règles de l'événement</p>
+    <h2 class="section__heading">Simple, respectueux, sympa</h2>
+    <div class="regles__grid">
+      <div class="regle-card regle-card--green">
+        <span class="regle-card__icon">✅</span>
+        <div class="regle-card__text"><strong>Respect de tous</strong>Bonne ambiance obligatoire. Tout le monde est le bienvenu dans le calme et le respect mutuel.</div>
+      </div>
+      <div class="regle-card regle-card--green">
+        <span class="regle-card__icon">✅</span>
+        <div class="regle-card__text"><strong>Ponctualité</strong>Préviens si tu arrives en retard ou si tu dois annuler. Ça facilite l'organisation.</div>
+      </div>
+      <div class="regle-card regle-card--green">
+        <span class="regle-card__icon">🎥</span>
+        <div class="regle-card__text"><strong>Live Kick partiel</strong>Une partie du jardin sera diffusée en live. Aucune obligation d'être filmé.</div>
+      </div>
+      <div class="regle-card regle-card--green">
+        <span class="regle-card__icon">✅</span>
+        <div class="regle-card__text"><strong>Pas les mains vides</strong>Ce n'est pas obligatoire, mais ramener quelque chose est toujours apprécié.</div>
+      </div>
+      <div class="regle-card regle-card--red">
+        <span class="regle-card__icon">🚫</span>
+        <div class="regle-card__text"><strong>Pas d'enfants</strong>L'événement est réservé aux majeurs uniquement.</div>
+      </div>
+      <div class="regle-card regle-card--red">
+        <span class="regle-card__icon">🚫</span>
+        <div class="regle-card__text"><strong>Drogues dures interdites</strong>Strictement interdit. Tout manquement entraîne une exclusion immédiate.</div>
+      </div>
+      <div class="regle-card regle-card--red">
+        <span class="regle-card__icon">🔒</span>
+        <div class="regle-card__text"><strong>Lieu confidentiel</strong>L'adresse exacte est communiquée uniquement aux participants confirmés. Ne pas la partager publiquement.</div>
+      </div>
+      <div class="regle-card regle-card--red">
+        <span class="regle-card__icon">⚠️</span>
+        <div class="regle-card__text"><strong>Inscription ≠ confirmation</strong>S'inscrire ne garantit pas automatiquement une place. Je reviens vers toi en MP.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Formulaire ───────────────────────────────────────────────────────── -->
+<section class="formulaire" id="formulaire">
+  <div style="max-width:640px;margin:0 auto 32px;text-align:center;">
+    <p class="section__title">📝 Inscription</p>
+    <h2 class="section__heading">Je m'inscris au barbecue</h2>
+  </div>
+
+  <div class="form-wrap">
+
+    <div id="form-success" class="form-success">
+      <span class="form-success__icon">🎉</span>
+      <p class="form-success__title">Inscription envoyée !</p>
+      <p class="form-success__text">Merci pour ton inscription ! Je reviendrai vers toi en MP Discord ou Instagram si ta participation est confirmée. Pense à surveiller tes messages.</p>
+    </div>
+
+    <form id="bbq-form" action="https://formspree.io/f/xbdvrgba" method="POST">
+
+      <!-- Identité -->
+      <div class="form-section">
+        <div class="form-section__title">👤 Identité</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="pseudo">Pseudo <span>*</span></label>
+            <input class="form-input" type="text" id="pseudo" name="pseudo" placeholder="Ton pseudo Kick / Discord" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prenom">Prénom</label>
+            <input class="form-input" type="text" id="prenom" name="prenom" placeholder="Ton prénom" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="email">Email <span>*</span></label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="ton@email.fr" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="telephone">Téléphone</label>
+            <input class="form-input" type="tel" id="telephone" name="telephone" placeholder="06 XX XX XX XX" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="discord">Discord</label>
+            <input class="form-input" type="text" id="discord" name="discord" placeholder="pseudo#0000" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="instagram">Instagram</label>
+            <input class="form-input" type="text" id="instagram" name="instagram" placeholder="@pseudo" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="ville">Ville de départ <span>*</span></label>
+          <input class="form-input" type="text" id="ville" name="ville" placeholder="Ex : Paris, Lyon, Bordeaux..." required />
+        </div>
+      </div>
+
+      <!-- Présence -->
+      <div class="form-section">
+        <div class="form-section__title">📅 Présence</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="presence">Présence prévue <span>*</span></label>
+            <select class="form-select" id="presence" name="presence" required>
+              <option value="" disabled selected>Choisir...</option>
+              <option>Samedi toute la journée</option>
+              <option>Samedi soir uniquement</option>
+              <option>Nuit complète (sam → dim)</option>
+              <option>Dimanche matin uniquement</option>
+              <option>Je ne sais pas encore</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="nuit">Nuit sur place <span>*</span></label>
+            <select class="form-select" id="nuit" name="nuit" required>
+              <option value="" disabled selected>Choisir...</option>
+              <option>Oui, je dors sur place</option>
+              <option>Non, je rentre le soir</option>
+              <option>Je ne sais pas encore</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="transport">Moyen de transport <span>*</span></label>
+            <select class="form-select" id="transport" name="transport" required>
+              <option value="" disabled selected>Choisir...</option>
+              <option>RER / Transports en commun</option>
+              <option>Voiture</option>
+              <option>Covoiturage (je cherche)</option>
+              <option>Covoiturage (je propose)</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="personnes">Nombre de personnes <span>*</span></label>
+            <select class="form-select" id="personnes" name="personnes" required>
+              <option value="" disabled selected>Choisir...</option>
+              <option>1 (je viens seul)</option>
+              <option>2</option>
+              <option>3+</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Apport -->
+      <div class="form-section">
+        <div class="form-section__title">🎒 Ce que tu peux ramener</div>
+
+        <div class="form-group">
+          <div class="form-checks">
+            <label class="form-check">
+              <input type="checkbox" name="apport[]" value="nourriture" />
+              <span class="form-check__label">🥩 Nourriture</span>
+            </label>
+            <label class="form-check">
+              <input type="checkbox" name="apport[]" value="boissons" />
+              <span class="form-check__label">🥤 Boissons</span>
+            </label>
+            <label class="form-check">
+              <input type="checkbox" name="apport[]" value="charbon" />
+              <span class="form-check__label">🔥 Charbon / allume-feu</span>
+            </label>
+            <label class="form-check">
+              <input type="checkbox" name="apport[]" value="couverts" />
+              <span class="form-check__label">🍽️ Couverts / assiettes / serviettes</span>
+            </label>
+            <label class="form-check">
+              <input type="checkbox" name="apport[]" value="enceinte" />
+              <span class="form-check__label">🔊 Enceinte / matériel</span>
+            </label>
+            <label class="form-check">
+              <input type="checkbox" name="apport[]" value="rien" />
+              <span class="form-check__label">❌ Rien pour l'instant</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="apport_detail">Précise ce que tu peux ramener</label>
+          <input class="form-input" type="text" id="apport_detail" name="apport_detail" placeholder="Ex : 2 kg de merguez, 6 bières..." />
+        </div>
+      </div>
+
+      <!-- Infos complémentaires -->
+      <div class="form-section">
+        <div class="form-section__title">ℹ️ Infos complémentaires</div>
+
+        <div class="form-group">
+          <label class="form-label" for="restrictions">Allergies / restrictions alimentaires</label>
+          <input class="form-input" type="text" id="restrictions" name="restrictions" placeholder="Ex : halal, végétarien, allergie aux noix..." />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">Message libre</label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="Une question, une précision, quelque chose à ajouter..."></textarea>
+        </div>
+      </div>
+
+      <!-- Acceptation -->
+      <div class="form-section">
+        <div class="form-section__title">✅ Acceptation</div>
+        <div class="form-checks">
+          <label class="form-check form-check--required">
+            <input type="checkbox" name="regles" value="oui" required />
+            <span class="form-check__label">Je comprends que l'inscription ne garantit pas automatiquement ma participation et que le lieu exact sera communiqué uniquement après validation. <span style="color:var(--green)">*</span></span>
+          </label>
+          <label class="form-check form-check--required">
+            <input type="checkbox" name="contact" value="oui" required />
+            <span class="form-check__label">J'accepte d'être contacté par email, Discord ou Instagram au sujet de l'organisation du barbecue. <span style="color:var(--green)">*</span></span>
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="form-submit" id="btn-submit">🔥 Envoyer mon inscription</button>
+      <div id="form-error" class="form-error">Une erreur est survenue. Réessaie ou contacte-moi à contact@posty78.fr</div>
+      <p class="form-note">Champs marqués <span style="color:var(--green)">*</span> obligatoires — Réponse en MP Discord ou Instagram</p>
+
+    </form>
+  </div>
+</section>
+
+<!-- ─── Footer ───────────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <span class="footer__name">Posty78</span>
+    <div class="footer__links">
+      <a href="https://posty78.fr" target="_blank">posty78.fr</a>
+      <a href="https://kick.com/posty78" target="_blank">kick.com/posty78</a>
+      <a href="https://discord.posty78.fr" target="_blank">discord.posty78.fr</a>
+      <a href="https://insta.posty78.fr" target="_blank">insta.posty78.fr</a>
+      <a href="mailto:contact@posty78.fr">contact@posty78.fr</a>
+    </div>
+    <p class="footer__legal">Barbecue communautaire Posty78 — Validation manuelle en MP Discord ou Instagram</p>
+  </div>
+</footer>
+
+<script>
+  // ─── Gestion du formulaire ───────────────────────────────────────────────
+  const form       = document.getElementById("bbq-form");
+  const btnSubmit  = document.getElementById("btn-submit");
+  const formSuccess= document.getElementById("form-success");
+  const formError  = document.getElementById("form-error");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    btnSubmit.disabled    = true;
+    btnSubmit.textContent = "Envoi en cours…";
+    formError.style.display = "none";
+
+    try {
+      const res = await fetch(form.action, {
+        method:  "POST",
+        body:    new FormData(form),
+        headers: { "Accept": "application/json" }
+      });
+
+      if (res.ok) {
+        form.style.display        = "none";
+        formSuccess.style.display = "block";
+      } else {
+        throw new Error("Erreur serveur");
+      }
+    } catch {
+      formError.style.display = "block";
+      btnSubmit.disabled      = false;
+      btnSubmit.textContent   = "🔥 Envoyer mon inscription";
+    }
+  });
+
+  // ─── Jauges des courses (à mettre à jour manuellement) ──────────────────
+  const courses = {
+    aperitifs: { current: 0,  max: 25,  unit: "sachets" },
+    alcool:    { current: 0,  max: 15,  unit: "L" },
+    bieres:    { current: 0,  max: 45,  unit: "L" },
+    softs:     { current: 0,  max: 35,  unit: "L" },
+    viande:    { current: 0,  max: 25,  unit: "kg" },
+    desserts:  { current: 0,  max: 20,  unit: "paquets" },
+  };
+
+  Object.entries(courses).forEach(([key, { current, max, unit }]) => {
+    const pct = Math.min((current / max) * 100, 100);
+    const bar = document.getElementById(`bar-${key}`);
+    const count = document.getElementById(`count-${key}`);
+    if (bar)   bar.style.width = `${pct}%`;
+    if (count) count.textContent = `${current} / ${max} ${unit}`;
+  });
+</script>
+
 </body>
 </html>
