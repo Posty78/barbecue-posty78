@@ -36,7 +36,6 @@
     body { font-family: var(--font); background: var(--bg); color: var(--white); min-height: 100vh; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
 
-    /* ─── Header ───────────────────────────────────────────────────────── */
     .header { position: sticky; top: 0; z-index: 100; background: rgba(0,0,0,0.92); border-bottom: 1px solid var(--border); backdrop-filter: blur(12px); }
     .header__inner { max-width: 1000px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
     .header__brand { display: flex; flex-direction: column; gap: 2px; }
@@ -45,28 +44,68 @@
     .header__kick { font-size: 13px; font-weight: 700; color: var(--green); background: var(--green-dim); border: 1px solid var(--border); padding: 7px 16px; border-radius: var(--radius-md); transition: all var(--transition); text-shadow: 0 0 8px var(--green); }
     .header__kick:hover { background: rgba(0,255,0,0.18); border-color: var(--green); }
 
-    /* ─── Hero ─────────────────────────────────────────────────────────── */
     .hero { padding: 80px 24px 60px; text-align: center; border-bottom: 1px solid var(--border); background: radial-gradient(ellipse at top, rgba(249,115,22,0.06) 0%, rgba(0,255,0,0.03) 40%, transparent 70%); }
     .hero__inner { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; }
     .hero__emoji { font-size: 64px; line-height: 1; }
     .hero__eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); text-shadow: 0 0 10px var(--orange); }
     .hero__title { font-size: 56px; font-weight: 900; color: var(--white); line-height: 1.05; letter-spacing: -0.02em; text-shadow: 0 0 40px rgba(249,115,22,0.2); }
     .hero__title span { color: var(--green); text-shadow: 0 0 20px var(--green); }
-    .hero__sub { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.6; max-width: 520px; }
     .hero__date { background: rgba(249,115,22,0.1); border: 2px solid var(--orange); border-radius: var(--radius-lg); padding: 16px 28px; display: inline-flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; color: var(--orange); text-shadow: 0 0 8px var(--orange); }
     .hero__btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
-    .btn-primary { padding: 14px 32px; background: var(--green); color: #000; font-size: 16px; font-weight: 800; border-radius: var(--radius-md); border: none; cursor: pointer; transition: all var(--transition); box-shadow: 0 0 20px rgba(0,255,0,0.3); font-family: var(--font); }
+    .btn-primary { padding: 14px 32px; background: var(--green); color: #000; font-size: 16px; font-weight: 800; border-radius: var(--radius-md); border: none; cursor: pointer; transition: all var(--transition); box-shadow: 0 0 20px rgba(0,255,0,0.3); font-family: var(--font); text-decoration: none; display: inline-block; }
     .btn-primary:hover { opacity: 0.88; box-shadow: 0 0 30px rgba(0,255,0,0.5); transform: translateY(-2px); }
-    .btn-secondary { padding: 14px 32px; background: transparent; color: var(--white); font-size: 16px; font-weight: 700; border-radius: var(--radius-md); border: 2px solid var(--border); cursor: pointer; transition: all var(--transition); font-family: var(--font); }
+    .btn-secondary { padding: 14px 32px; background: transparent; color: var(--white); font-size: 16px; font-weight: 700; border-radius: var(--radius-md); border: 2px solid var(--border); cursor: pointer; transition: all var(--transition); font-family: var(--font); text-decoration: none; display: inline-block; }
     .btn-secondary:hover { border-color: var(--green); color: var(--green); }
     .hero__live { font-size: 13px; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 6px; }
     .hero__live span { color: var(--green); font-weight: 600; }
 
-    /* ─── Infos rapides ─────────────────────────────────────────────────── */
-    .infos { padding: 60px 24px; border-bottom: 1px solid var(--border); }
-    .infos__inner { max-width: 1000px; margin: 0 auto; }
+    /* ─── Compteur ──────────────────────────────────────────────────────── */
+    .compteur {
+      padding: 40px 24px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(0,255,0,0.02);
+    }
+    .compteur__inner {
+      max-width: 600px;
+      margin: 0 auto;
+      background: rgba(0,0,0,0.8);
+      border: 2px solid var(--green);
+      border-radius: var(--radius-lg);
+      padding: 32px 40px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(0,255,0,0.12);
+    }
+    .compteur__label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green);
+      text-shadow: 0 0 8px var(--green);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .compteur__number {
+      font-size: 96px;
+      font-weight: 900;
+      font-family: var(--mono);
+      color: var(--green);
+      text-shadow: 0 0 30px var(--green), 0 0 60px rgba(0,255,0,0.3);
+      line-height: 1;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .compteur__sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+    }
+    .compteur__sub strong { color: var(--white); }
+
     .section__title { font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); text-shadow: 0 0 8px var(--green); text-align: center; margin-bottom: 8px; }
     .section__heading { font-size: 30px; font-weight: 900; color: var(--white); text-align: center; margin-bottom: 36px; }
+
+    .infos { padding: 60px 24px; border-bottom: 1px solid var(--border); }
+    .infos__inner { max-width: 1000px; margin: 0 auto; }
     .infos__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .info-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 20px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; backdrop-filter: blur(8px); transition: border-color var(--transition); }
     .info-card:hover { border-color: var(--green); }
@@ -75,27 +114,27 @@
     .info-card__value { font-size: 15px; font-weight: 700; color: var(--white); line-height: 1.4; }
     .info-card__sub { font-size: 12px; color: rgba(255,255,255,0.5); }
 
-    /* ─── Comment ça marche ─────────────────────────────────────────────── */
     .steps { padding: 60px 24px; border-bottom: 1px solid var(--border); background: rgba(0,255,0,0.015); }
-    .steps__grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .steps__inner { max-width: 1000px; margin: 0 auto; }
+    .steps__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
     .step-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; position: relative; }
     .step-card__num { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); width: 26px; height: 26px; background: var(--green); color: #000; font-size: 12px; font-weight: 900; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .step-card__icon { font-size: 32px; margin-top: 8px; }
     .step-card__title { font-size: 14px; font-weight: 800; color: var(--white); }
     .step-card__desc { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.5; }
 
-    /* ─── Ce que tu peux ramener ────────────────────────────────────────── */
     .apports { padding: 60px 24px; border-bottom: 1px solid var(--border); }
-    .apports__grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .apports__inner { max-width: 1000px; margin: 0 auto; }
+    .apports__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .apport-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 18px 16px; display: flex; align-items: center; gap: 12px; transition: border-color var(--transition); }
     .apport-card:hover { border-color: var(--orange); }
     .apport-card__icon { font-size: 28px; flex-shrink: 0; }
     .apport-card__text { font-size: 14px; font-weight: 600; color: var(--white); }
     .apport-card__sub { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
 
-    /* ─── État des courses ──────────────────────────────────────────────── */
     .courses { padding: 60px 24px; border-bottom: 1px solid var(--border); background: rgba(0,255,0,0.015); }
-    .courses__grid { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+    .courses__inner { max-width: 1000px; margin: 0 auto; }
+    .courses__grid { display: flex; flex-direction: column; gap: 16px; }
     .course-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px 20px; }
     .course-item__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; gap: 12px; }
     .course-item__label { font-size: 14px; font-weight: 600; color: var(--white); display: flex; align-items: center; gap: 8px; }
@@ -103,11 +142,11 @@
     .course-item__bar { height: 6px; background: rgba(0,255,0,0.1); border-radius: 99px; overflow: hidden; }
     .course-item__fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--green), #aaff00); transition: width 1s ease; box-shadow: 0 0 6px var(--green); }
     .course-item__fill--orange { background: linear-gradient(90deg, var(--orange), #fbbf24); box-shadow: 0 0 6px var(--orange); }
-    .course-note { max-width: 1000px; margin: 16px auto 0; font-size: 12px; color: var(--muted); text-align: center; }
+    .course-note { font-size: 12px; color: var(--muted); text-align: center; margin-top: 16px; }
 
-    /* ─── Règles ────────────────────────────────────────────────────────── */
     .regles { padding: 60px 24px; border-bottom: 1px solid var(--border); }
-    .regles__grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .regles__inner { max-width: 1000px; margin: 0 auto; }
+    .regles__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .regle-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px 18px; display: flex; align-items: flex-start; gap: 12px; }
     .regle-card--green { border-color: rgba(0,255,0,0.3); }
     .regle-card--red   { border-color: rgba(239,68,68,0.3); }
@@ -115,7 +154,6 @@
     .regle-card__text { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.5; }
     .regle-card__text strong { color: var(--white); display: block; margin-bottom: 2px; }
 
-    /* ─── Formulaire ────────────────────────────────────────────────────── */
     .formulaire { padding: 60px 24px 80px; background: rgba(0,255,0,0.015); }
     .form-wrap { max-width: 640px; margin: 0 auto; background: var(--bg-card); border: 2px solid var(--border); border-radius: var(--radius-lg); padding: 36px 32px; backdrop-filter: blur(12px); box-shadow: 0 0 40px rgba(0,255,0,0.06); }
     .form-section { margin-bottom: 28px; }
@@ -123,17 +161,7 @@
     .form-group { margin-bottom: 16px; }
     .form-label { display: block; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.8); margin-bottom: 6px; }
     .form-label span { color: var(--green); }
-    .form-input, .form-select, .form-textarea {
-      width: 100%;
-      background: rgba(0,255,0,0.04);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      color: var(--white);
-      font-family: var(--font);
-      font-size: 14px;
-      outline: none;
-      transition: border-color var(--transition), box-shadow var(--transition);
-    }
+    .form-input, .form-select, .form-textarea { width: 100%; background: rgba(0,255,0,0.04); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--white); font-family: var(--font); font-size: 14px; outline: none; transition: border-color var(--transition), box-shadow var(--transition); }
     .form-input, .form-select { height: 46px; padding: 0 14px; }
     .form-textarea { padding: 12px 14px; resize: vertical; min-height: 90px; }
     .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--green); box-shadow: 0 0 10px rgba(0,255,0,0.15); }
@@ -150,15 +178,25 @@
     .form-submit:hover { opacity: 0.88; box-shadow: 0 0 30px rgba(0,255,0,0.5); transform: translateY(-2px); }
     .form-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
     .form-note { font-size: 12px; color: var(--muted); text-align: center; margin-top: 14px; line-height: 1.5; }
-
-    /* ─── Message succès/erreur ─────────────────────────────────────────── */
     .form-success { display: none; text-align: center; padding: 32px; }
     .form-success__icon { font-size: 52px; margin-bottom: 16px; display: block; }
     .form-success__title { font-size: 22px; font-weight: 800; color: var(--green); margin-bottom: 10px; }
     .form-success__text { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.6; }
     .form-error { display: none; background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.3); border-radius: var(--radius-md); padding: 14px 18px; font-size: 13px; color: #fca5a5; margin-top: 12px; text-align: center; }
 
-    /* ─── Footer ────────────────────────────────────────────────────────── */
+    /* ─── Contact ───────────────────────────────────────────────────────── */
+    .contact { padding: 60px 24px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(0,255,0,0.015); }
+    .contact__inner { max-width: 600px; margin: 0 auto; }
+    .contact__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .contact-btn { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 24px 16px; background: var(--bg-card); border: 2px solid var(--border); border-radius: var(--radius-lg); transition: all var(--transition); text-align: center; }
+    .contact-btn:hover { border-color: var(--green); background: rgba(0,255,0,0.06); transform: translateY(-2px); }
+    .contact-btn__icon { font-size: 32px; }
+    .contact-btn__platform { font-size: 16px; font-weight: 900; color: var(--green); text-shadow: 0 0 8px var(--green); }
+    .contact-btn__handle { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--mono); }
+    .contact-btn__action { font-size: 12px; font-weight: 700; color: #000; background: var(--green); padding: 5px 14px; border-radius: 99px; }
+    .contact__mail { text-align: center; font-size: 13px; color: rgba(255,255,255,0.5); }
+    .contact__mail a { color: var(--green); font-weight: 600; }
+
     .footer { border-top: 1px solid var(--border); padding: 32px 24px; background: rgba(0,0,0,0.6); }
     .footer__inner { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
     .footer__name { font-size: 20px; font-weight: 900; color: var(--green); text-shadow: 0 0 10px var(--green); }
@@ -167,24 +205,26 @@
     .footer__links a:hover { color: var(--green); }
     .footer__legal { font-size: 11px; color: var(--muted); }
 
-    /* ─── Responsive ────────────────────────────────────────────────────── */
     @media (max-width: 768px) {
-      .infos__grid  { grid-template-columns: repeat(2, 1fr); }
-      .steps__grid  { grid-template-columns: repeat(2, 1fr); }
-      .apports__grid{ grid-template-columns: repeat(2, 1fr); }
-      .regles__grid { grid-template-columns: 1fr; }
-      .hero__title  { font-size: 38px; }
+      .infos__grid   { grid-template-columns: repeat(2, 1fr); }
+      .steps__grid   { grid-template-columns: repeat(2, 1fr); }
+      .apports__grid { grid-template-columns: repeat(2, 1fr); }
+      .regles__grid  { grid-template-columns: 1fr; }
+      .contact__grid { grid-template-columns: 1fr; }
+      .hero__title   { font-size: 38px; }
+      .compteur__number { font-size: 72px; }
     }
     @media (max-width: 480px) {
-      .infos__grid  { grid-template-columns: 1fr; }
-      .steps__grid  { grid-template-columns: 1fr; }
-      .apports__grid{ grid-template-columns: 1fr; }
-      .form-row     { grid-template-columns: 1fr; }
-      .hero__title  { font-size: 30px; }
-      .hero__emoji  { font-size: 48px; }
-      .form-wrap    { padding: 24px 16px; }
-      .hero__btns   { flex-direction: column; width: 100%; }
+      .infos__grid   { grid-template-columns: 1fr; }
+      .steps__grid   { grid-template-columns: 1fr; }
+      .apports__grid { grid-template-columns: 1fr; }
+      .form-row      { grid-template-columns: 1fr; }
+      .hero__title   { font-size: 30px; }
+      .hero__emoji   { font-size: 48px; }
+      .form-wrap     { padding: 24px 16px; }
+      .hero__btns    { flex-direction: column; width: 100%; }
       .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+      .compteur__number { font-size: 56px; }
     }
   </style>
 </head>
@@ -209,7 +249,6 @@
     <span class="hero__emoji">🔥</span>
     <span class="hero__eyebrow">Édition 2026</span>
     <h1 class="hero__title">BARBECUE<br><span>POSTY78</span></h1>
-    <p class="hero__sub">Un moment simple entre viewers, autour d'un barbecue, dans le respect et la bonne ambiance.</p>
     <div class="hero__date">
       📅 Sam 29 août 10h00 → Dim 30 août 10h00
     </div>
@@ -218,6 +257,15 @@
       <a href="#infos" class="btn-secondary">Voir les infos</a>
     </div>
     <p class="hero__live">🟢 <span>Une partie du jardin sera diffusée en live sur Kick</span> — aucune obligation d'être filmé</p>
+  </div>
+</section>
+
+<!-- ─── Compteur ─────────────────────────────────────────────────────────── -->
+<section class="compteur">
+  <div class="compteur__inner">
+    <span class="compteur__label">✅ Compteur d'inscriptions validées</span>
+    <span class="compteur__number">11</span>
+    <p class="compteur__sub">participants confirmés pour le <strong>29 août 2026</strong></p>
   </div>
 </section>
 
@@ -269,83 +317,67 @@
 
 <!-- ─── Comment ça marche ────────────────────────────────────────────────── -->
 <section class="steps">
-  <div class="section__title" style="max-width:1000px;margin:0 auto 8px;">🗺️ Comment ça marche</div>
-  <h2 class="section__heading">4 étapes simples</h2>
-  <div class="steps__grid">
-    <div class="step-card">
-      <span class="step-card__num">1</span>
-      <span class="step-card__icon">📝</span>
-      <span class="step-card__title">Tu t'inscris</span>
-      <p class="step-card__desc">Tu remplis le formulaire en bas de page avec tes infos et disponibilités.</p>
-    </div>
-    <div class="step-card">
-      <span class="step-card__num">2</span>
-      <span class="step-card__icon">✅</span>
-      <span class="step-card__title">Je valide</span>
-      <p class="step-card__desc">Je reviens vers toi en MP Discord ou Instagram pour confirmer ta place.</p>
-    </div>
-    <div class="step-card">
-      <span class="step-card__num">3</span>
-      <span class="step-card__icon">📍</span>
-      <span class="step-card__title">Tu reçois l'adresse</span>
-      <p class="step-card__desc">L'adresse exacte est communiquée uniquement aux personnes confirmées.</p>
-    </div>
-    <div class="step-card">
-      <span class="step-card__num">4</span>
-      <span class="step-card__icon">🔥</span>
-      <span class="step-card__title">On se retrouve !</span>
-      <p class="step-card__desc">Samedi 29 août à 10h, on allume le barbecue et c'est parti !</p>
+  <div class="steps__inner">
+    <p class="section__title">🗺️ Comment ça marche</p>
+    <h2 class="section__heading">4 étapes simples</h2>
+    <div class="steps__grid">
+      <div class="step-card">
+        <span class="step-card__num">1</span>
+        <span class="step-card__icon">📝</span>
+        <span class="step-card__title">Tu t'inscris</span>
+        <p class="step-card__desc">Tu remplis le formulaire en bas de page avec tes infos et disponibilités.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-card__num">2</span>
+        <span class="step-card__icon">✅</span>
+        <span class="step-card__title">Je valide</span>
+        <p class="step-card__desc">Je reviens vers toi en MP Discord ou Instagram pour confirmer ta place.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-card__num">3</span>
+        <span class="step-card__icon">📍</span>
+        <span class="step-card__title">Tu reçois l'adresse</span>
+        <p class="step-card__desc">L'adresse exacte est communiquée uniquement aux participants confirmés.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-card__num">4</span>
+        <span class="step-card__icon">🔥</span>
+        <span class="step-card__title">On se retrouve !</span>
+        <p class="step-card__desc">Samedi 29 août à 10h, on allume le barbecue et c'est parti !</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ─── Ce que tu peux ramener ───────────────────────────────────────────── -->
 <section class="apports">
-  <div style="max-width:1000px;margin:0 auto;">
+  <div class="apports__inner">
     <p class="section__title">🎒 Ce que tu peux ramener</p>
     <h2 class="section__heading">Pas obligatoire, mais apprécié !</h2>
     <div class="apports__grid">
       <div class="apport-card">
         <span class="apport-card__icon">🥩</span>
-        <div>
-          <div class="apport-card__text">Nourriture</div>
-          <div class="apport-card__sub">Viande, accompagnements, snacks</div>
-        </div>
+        <div><div class="apport-card__text">Nourriture</div><div class="apport-card__sub">Viande, accompagnements, snacks</div></div>
       </div>
       <div class="apport-card">
         <span class="apport-card__icon">🥤</span>
-        <div>
-          <div class="apport-card__text">Boissons</div>
-          <div class="apport-card__sub">Softs, alcool, jus...</div>
-        </div>
+        <div><div class="apport-card__text">Boissons</div><div class="apport-card__sub">Softs, alcool, jus...</div></div>
       </div>
       <div class="apport-card">
         <span class="apport-card__icon">🍖</span>
-        <div>
-          <div class="apport-card__text">Charbon / allume-feu</div>
-          <div class="apport-card__sub">Toujours utile !</div>
-        </div>
+        <div><div class="apport-card__text">Charbon / allume-feu</div><div class="apport-card__sub">Toujours utile !</div></div>
       </div>
       <div class="apport-card">
         <span class="apport-card__icon">🍽️</span>
-        <div>
-          <div class="apport-card__text">Couverts / assiettes</div>
-          <div class="apport-card__sub">Serviettes, nappes...</div>
-        </div>
+        <div><div class="apport-card__text">Couverts / assiettes</div><div class="apport-card__sub">Serviettes, nappes...</div></div>
       </div>
       <div class="apport-card">
         <span class="apport-card__icon">🔊</span>
-        <div>
-          <div class="apport-card__text">Enceinte / matériel</div>
-          <div class="apport-card__sub">Pour l'ambiance !</div>
-        </div>
+        <div><div class="apport-card__text">Enceinte / matériel</div><div class="apport-card__sub">Pour l'ambiance !</div></div>
       </div>
       <div class="apport-card">
         <span class="apport-card__icon">😄</span>
-        <div>
-          <div class="apport-card__text">Bonne humeur</div>
-          <div class="apport-card__sub">C'est le principal !</div>
-        </div>
+        <div><div class="apport-card__text">Bonne humeur</div><div class="apport-card__sub">C'est le principal !</div></div>
       </div>
     </div>
   </div>
@@ -353,59 +385,52 @@
 
 <!-- ─── État des courses ─────────────────────────────────────────────────── -->
 <section class="courses">
-  <div style="max-width:1000px;margin:0 auto;">
+  <div class="courses__inner">
     <p class="section__title">🛒 État des courses</p>
     <h2 class="section__heading">Mise à jour en temps réel</h2>
     <div class="courses__grid">
-
       <div class="course-item">
         <div class="course-item__top">
           <span class="course-item__label">🍟 Apéritifs <small style="color:var(--muted);font-weight:400;">(chips, biscuits, cacahuètes...)</small></span>
-          <span class="course-item__count" id="count-aperitifs">0 / 25 sachets</span>
+          <span class="course-item__count" id="count-aperitifs">4 / 25 sachets</span>
         </div>
-        <div class="course-item__bar"><div class="course-item__fill" id="bar-aperitifs" style="width:0%"></div></div>
+        <div class="course-item__bar"><div class="course-item__fill" id="bar-aperitifs" style="width:16%"></div></div>
       </div>
-
       <div class="course-item">
         <div class="course-item__top">
           <span class="course-item__label">🍷 Vin / alcool <small style="color:var(--muted);font-weight:400;">(rosé, whisky, rhum...)</small></span>
-          <span class="course-item__count" id="count-alcool">0 / 15 L</span>
+          <span class="course-item__count" id="count-alcool">2 / 15 L</span>
         </div>
-        <div class="course-item__bar"><div class="course-item__fill course-item__fill--orange" id="bar-alcool" style="width:0%"></div></div>
+        <div class="course-item__bar"><div class="course-item__fill course-item__fill--orange" id="bar-alcool" style="width:13%"></div></div>
       </div>
-
       <div class="course-item">
         <div class="course-item__top">
           <span class="course-item__label">🍺 Bières <small style="color:var(--muted);font-weight:400;">(Leffe, Desperados, Heineken...)</small></span>
-          <span class="course-item__count" id="count-bieres">0 / 45 L</span>
+          <span class="course-item__count" id="count-bieres">7 / 45 L</span>
         </div>
-        <div class="course-item__bar"><div class="course-item__fill course-item__fill--orange" id="bar-bieres" style="width:0%"></div></div>
+        <div class="course-item__bar"><div class="course-item__fill course-item__fill--orange" id="bar-bieres" style="width:16%"></div></div>
       </div>
-
       <div class="course-item">
         <div class="course-item__top">
           <span class="course-item__label">🥤 Softs <small style="color:var(--muted);font-weight:400;">(Coca, Oasis, Ice Tea...)</small></span>
-          <span class="course-item__count" id="count-softs">0 / 35 L</span>
+          <span class="course-item__count" id="count-softs">5 / 35 L</span>
         </div>
-        <div class="course-item__bar"><div class="course-item__fill" id="bar-softs" style="width:0%"></div></div>
+        <div class="course-item__bar"><div class="course-item__fill" id="bar-softs" style="width:14%"></div></div>
       </div>
-
       <div class="course-item">
         <div class="course-item__top">
           <span class="course-item__label">🥩 Viande <small style="color:var(--muted);font-weight:400;">(bœuf, merguez, saucisses...)</small></span>
-          <span class="course-item__count" id="count-viande">0 / 25 kg</span>
+          <span class="course-item__count" id="count-viande">4 / 25 kg</span>
         </div>
-        <div class="course-item__bar"><div class="course-item__fill course-item__fill--orange" id="bar-viande" style="width:0%"></div></div>
+        <div class="course-item__bar"><div class="course-item__fill course-item__fill--orange" id="bar-viande" style="width:16%"></div></div>
       </div>
-
       <div class="course-item">
         <div class="course-item__top">
           <span class="course-item__label">🍰 Desserts <small style="color:var(--muted);font-weight:400;">(Kinder, gâteaux, bonbons...)</small></span>
-          <span class="course-item__count" id="count-desserts">0 / 20 paquets</span>
+          <span class="course-item__count" id="count-desserts">3 / 20 paquets</span>
         </div>
-        <div class="course-item__bar"><div class="course-item__fill" id="bar-desserts" style="width:0%"></div></div>
+        <div class="course-item__bar"><div class="course-item__fill" id="bar-desserts" style="width:15%"></div></div>
       </div>
-
     </div>
     <p class="course-note">⚠️ Liste mise à jour manuellement par Posty78 au fur et à mesure des confirmations.</p>
   </div>
@@ -413,7 +438,7 @@
 
 <!-- ─── Règles ───────────────────────────────────────────────────────────── -->
 <section class="regles">
-  <div style="max-width:1000px;margin:0 auto;">
+  <div class="regles__inner">
     <p class="section__title">📜 Règles de l'événement</p>
     <h2 class="section__heading">Simple, respectueux, sympa</h2>
     <div class="regles__grid">
@@ -453,6 +478,29 @@
   </div>
 </section>
 
+<!-- ─── Contact ──────────────────────────────────────────────────────────── -->
+<section class="contact">
+  <div class="contact__inner">
+    <p class="section__title">📩 Me contacter</p>
+    <h2 class="section__heading">Pour me contacter :</h2>
+    <div class="contact__grid">
+      <a href="https://discord.posty78.fr" target="_blank" class="contact-btn">
+        <span class="contact-btn__icon">🎮</span>
+        <span class="contact-btn__platform">DISCORD</span>
+        <span class="contact-btn__handle">#jd1819 — discord.posty78.fr</span>
+        <span class="contact-btn__action">Ouvrir Discord →</span>
+      </a>
+      <a href="https://insta.posty78.fr" target="_blank" class="contact-btn">
+        <span class="contact-btn__icon">📸</span>
+        <span class="contact-btn__platform">INSTAGRAM</span>
+        <span class="contact-btn__handle">@posty.78 — insta.posty78.fr</span>
+        <span class="contact-btn__action">Ouvrir Instagram →</span>
+      </a>
+    </div>
+    <p class="contact__mail">Ou par email : <a href="mailto:contact@posty78.fr">contact@posty78.fr</a></p>
+  </div>
+</section>
+
 <!-- ─── Formulaire ───────────────────────────────────────────────────────── -->
 <section class="formulaire" id="formulaire">
   <div style="max-width:640px;margin:0 auto 32px;text-align:center;">
@@ -461,7 +509,6 @@
   </div>
 
   <div class="form-wrap">
-
     <div id="form-success" class="form-success">
       <span class="form-success__icon">🎉</span>
       <p class="form-success__title">Inscription envoyée !</p>
@@ -470,10 +517,8 @@
 
     <form id="bbq-form" action="https://formspree.io/f/xbdvrgba" method="POST">
 
-      <!-- Identité -->
       <div class="form-section">
         <div class="form-section__title">👤 Identité</div>
-
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="pseudo">Pseudo <span>*</span></label>
@@ -484,18 +529,6 @@
             <input class="form-input" type="text" id="prenom" name="prenom" placeholder="Ton prénom" />
           </div>
         </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="email">Email <span>*</span></label>
-            <input class="form-input" type="email" id="email" name="email" placeholder="ton@email.fr" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="telephone">Téléphone</label>
-            <input class="form-input" type="tel" id="telephone" name="telephone" placeholder="06 XX XX XX XX" />
-          </div>
-        </div>
-
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="discord">Discord</label>
@@ -506,17 +539,14 @@
             <input class="form-input" type="text" id="instagram" name="instagram" placeholder="@pseudo" />
           </div>
         </div>
-
         <div class="form-group">
           <label class="form-label" for="ville">Ville de départ <span>*</span></label>
           <input class="form-input" type="text" id="ville" name="ville" placeholder="Ex : Paris, Lyon, Bordeaux..." required />
         </div>
       </div>
 
-      <!-- Présence -->
       <div class="form-section">
         <div class="form-section__title">📅 Présence</div>
-
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="presence">Présence prévue <span>*</span></label>
@@ -539,7 +569,6 @@
             </select>
           </div>
         </div>
-
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="transport">Moyen de transport <span>*</span></label>
@@ -564,61 +593,36 @@
         </div>
       </div>
 
-      <!-- Apport -->
       <div class="form-section">
         <div class="form-section__title">🎒 Ce que tu peux ramener</div>
-
         <div class="form-group">
           <div class="form-checks">
-            <label class="form-check">
-              <input type="checkbox" name="apport[]" value="nourriture" />
-              <span class="form-check__label">🥩 Nourriture</span>
-            </label>
-            <label class="form-check">
-              <input type="checkbox" name="apport[]" value="boissons" />
-              <span class="form-check__label">🥤 Boissons</span>
-            </label>
-            <label class="form-check">
-              <input type="checkbox" name="apport[]" value="charbon" />
-              <span class="form-check__label">🔥 Charbon / allume-feu</span>
-            </label>
-            <label class="form-check">
-              <input type="checkbox" name="apport[]" value="couverts" />
-              <span class="form-check__label">🍽️ Couverts / assiettes / serviettes</span>
-            </label>
-            <label class="form-check">
-              <input type="checkbox" name="apport[]" value="enceinte" />
-              <span class="form-check__label">🔊 Enceinte / matériel</span>
-            </label>
-            <label class="form-check">
-              <input type="checkbox" name="apport[]" value="rien" />
-              <span class="form-check__label">❌ Rien pour l'instant</span>
-            </label>
+            <label class="form-check"><input type="checkbox" name="apport[]" value="nourriture" /><span class="form-check__label">🥩 Nourriture</span></label>
+            <label class="form-check"><input type="checkbox" name="apport[]" value="boissons" /><span class="form-check__label">🥤 Boissons</span></label>
+            <label class="form-check"><input type="checkbox" name="apport[]" value="charbon" /><span class="form-check__label">🔥 Charbon / allume-feu</span></label>
+            <label class="form-check"><input type="checkbox" name="apport[]" value="couverts" /><span class="form-check__label">🍽️ Couverts / assiettes / serviettes</span></label>
+            <label class="form-check"><input type="checkbox" name="apport[]" value="enceinte" /><span class="form-check__label">🔊 Enceinte / matériel</span></label>
+            <label class="form-check"><input type="checkbox" name="apport[]" value="rien" /><span class="form-check__label">❌ Rien pour l'instant</span></label>
           </div>
         </div>
-
         <div class="form-group">
           <label class="form-label" for="apport_detail">Précise ce que tu peux ramener</label>
           <input class="form-input" type="text" id="apport_detail" name="apport_detail" placeholder="Ex : 2 kg de merguez, 6 bières..." />
         </div>
       </div>
 
-      <!-- Infos complémentaires -->
       <div class="form-section">
         <div class="form-section__title">ℹ️ Infos complémentaires</div>
-
         <div class="form-group">
           <label class="form-label" for="restrictions">Allergies / restrictions alimentaires</label>
           <input class="form-input" type="text" id="restrictions" name="restrictions" placeholder="Ex : halal, végétarien, allergie aux noix..." />
         </div>
-
         <div class="form-group">
           <label class="form-label" for="message">Message libre</label>
           <textarea class="form-textarea" id="message" name="message" placeholder="Une question, une précision, quelque chose à ajouter..."></textarea>
         </div>
       </div>
 
-      <!-- Acceptation -->
       <div class="form-section">
         <div class="form-section__title">✅ Acceptation</div>
         <div class="form-checks">
@@ -628,7 +632,7 @@
           </label>
           <label class="form-check form-check--required">
             <input type="checkbox" name="contact" value="oui" required />
-            <span class="form-check__label">J'accepte d'être contacté par email, Discord ou Instagram au sujet de l'organisation du barbecue. <span style="color:var(--green)">*</span></span>
+            <span class="form-check__label">J'accepte d'être contacté par Discord ou Instagram au sujet de l'organisation du barbecue. <span style="color:var(--green)">*</span></span>
           </label>
         </div>
       </div>
@@ -636,7 +640,6 @@
       <button type="submit" class="form-submit" id="btn-submit">🔥 Envoyer mon inscription</button>
       <div id="form-error" class="form-error">Une erreur est survenue. Réessaie ou contacte-moi à contact@posty78.fr</div>
       <p class="form-note">Champs marqués <span style="color:var(--green)">*</span> obligatoires — Réponse en MP Discord ou Instagram</p>
-
     </form>
   </div>
 </section>
@@ -657,11 +660,10 @@
 </footer>
 
 <script>
-  // ─── Gestion du formulaire ───────────────────────────────────────────────
-  const form       = document.getElementById("bbq-form");
-  const btnSubmit  = document.getElementById("btn-submit");
-  const formSuccess= document.getElementById("form-success");
-  const formError  = document.getElementById("form-error");
+  const form        = document.getElementById("bbq-form");
+  const btnSubmit   = document.getElementById("btn-submit");
+  const formSuccess = document.getElementById("form-success");
+  const formError   = document.getElementById("form-error");
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -687,24 +689,6 @@
       btnSubmit.disabled      = false;
       btnSubmit.textContent   = "🔥 Envoyer mon inscription";
     }
-  });
-
-  // ─── Jauges des courses (à mettre à jour manuellement) ──────────────────
-  const courses = {
-    aperitifs: { current: 0,  max: 25,  unit: "sachets" },
-    alcool:    { current: 0,  max: 15,  unit: "L" },
-    bieres:    { current: 0,  max: 45,  unit: "L" },
-    softs:     { current: 0,  max: 35,  unit: "L" },
-    viande:    { current: 0,  max: 25,  unit: "kg" },
-    desserts:  { current: 0,  max: 20,  unit: "paquets" },
-  };
-
-  Object.entries(courses).forEach(([key, { current, max, unit }]) => {
-    const pct = Math.min((current / max) * 100, 100);
-    const bar = document.getElementById(`bar-${key}`);
-    const count = document.getElementById(`count-${key}`);
-    if (bar)   bar.style.width = `${pct}%`;
-    if (count) count.textContent = `${current} / ${max} ${unit}`;
   });
 </script>
 
