@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: transparent; overflow: hidden; font-family: 'Open Sans', sans-serif; }
+
+  #widget {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 500px;
+  }
+
+  #title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #FF1493;
+    text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+    margin-bottom: 6px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  #amounts {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: 700;
+    color: #FF1493;
+    text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+    margin-bottom: 5px;
+  }
+
+  #bar-bg {
+    width: 100%;
+    height: 16px;
+    background: rgba(0,0,0,0.35);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  #bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #FF1493, #ff69b4);
+    border-radius: 8px;
+    width: 0%;
+    transition: width 1s ease;
+  }
+</style>
+</head>
+<body>
+<div id="widget">
+  <div id="title">DON POUR LES RESTAURANTS DU CŒUR</div>
+  <div id="amounts">
+    <span id="raised">€0.00</span>
+    <span id="goal">€1,000.00</span>
+  </div>
+  <div id="bar-bg">
+    <div id="bar-fill"></div>
+  </div>
+</div>
+
+<script>
+const CAMPAIGN_ID = "ac3a7c31-144b-4a84-be7d-5f709f637211";
+
+async function fetchData() {
+  try {
+    const res = await fetch("https://v5api.tiltify.com/api/public/campaigns/" + CAMPAIGN_ID);
+    const data = await res.json();
+    const raised = parseFloat(data.data?.amount_raised?.value || 0);
+    const goal = parseFloat(data.data?.goal?.value || 1000);
+    const pct = Math.min((raised / goal) * 100, 100);
+    document.getElementById("raised").textContent = "€" + raised.toFixed(2);
+    document.getElementById("goal").textContent = "€" + goal.toFixed(2);
+    document.getElementById("bar-fill").style.width = pct + "%";
+  } catch(e) {}
+}
+
+fetchData();
+setInterval(fetchData, 30000);
+</script>
+</body>
+</html>
