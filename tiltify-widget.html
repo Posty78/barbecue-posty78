@@ -10,13 +10,13 @@
   #bar-fill { position: absolute; top: 0; left: 0; height: 100%; background: linear-gradient(90deg, #00cc44, #00ff55); width: 0%; transition: width 1s ease; border-radius: 8px; }
   #content { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 15px; }
   #content span { font-size: 18px; font-weight: 700; color: #fff; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, 0px 2px 0 #000, 0px -2px 0 #000, 2px 0px 0 #000, -2px 0px 0 #000; }
-  #alert { position: fixed; top: 80px; left: 20px; width: 600px; display: none; flex-direction: column; align-items: center; gap: 8px; }
+  #alert { position: fixed; top: 80px; left: 200px; width: 220px; display: none; flex-direction: column; align-items: center; gap: 6px; }
   #alert.show { display: flex; }
+  #alert-box { background: rgba(0,0,0,0.8); border: 2px solid #00cc44; border-radius: 8px; padding: 6px 10px; text-align: center; width: 100%; }
+  #alert-name { font-size: 14px; font-weight: 700; color: #00ff55; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
+  #alert-amount { font-size: 13px; font-weight: 700; color: #fff; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; margin-top: 2px; }
+  #alert-comment { font-size: 11px; font-weight: 700; color: #ffdd00; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; margin-top: 2px; font-style: italic; }
   #alert-gif { width: 220px; height: 160px; object-fit: cover; border-radius: 10px; border: 3px solid #00cc44; }
-  #alert-box { background: rgba(0,0,0,0.8); border: 2px solid #00cc44; border-radius: 10px; padding: 10px 20px; text-align: center; width: 100%; }
-  #alert-name { font-size: 22px; font-weight: 700; color: #00ff55; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000; }
-  #alert-amount { font-size: 20px; font-weight: 700; color: #fff; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000; margin-top: 2px; }
-  #alert-comment { font-size: 16px; font-weight: 700; color: #ffdd00; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; margin-top: 4px; font-style: italic; }
   #test-btn { position: fixed; bottom: 20px; left: 20px; background: #00cc44; color: #000; font-size: 14px; font-weight: 700; padding: 8px 16px; border: none; border-radius: 8px; cursor: pointer; }
 </style>
 </head>
@@ -30,12 +30,12 @@
   </div>
 </div>
 <div id="alert">
-  <img id="alert-gif" src="surprise-shocked.gif" alt="alert">
   <div id="alert-box">
     <div id="alert-name"></div>
     <div id="alert-amount"></div>
     <div id="alert-comment"></div>
   </div>
+  <img id="alert-gif" src="surprise-shocked.gif" alt="alert">
 </div>
 <audio id="alert-sound" src="applaudissement.mp4"></audio>
 <button id="test-btn" onclick="triggerAlert('TestDonateur', '€5.00', 'Super initiative !')">🎉 Tester</button>
